@@ -1,13 +1,13 @@
-package com.proyecto_main;
+package com.proyecto.proyecto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TiendaApplication {
+public class ProyectoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TiendaApplication.class, args);
+		SpringApplication.run(ProyectoApplication.class, args);
 	}
 
 }
