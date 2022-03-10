@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html>
+        <head>
+            <title>Registrar un producto</title>
+            <link rel="stylesheet" href="css/crear.css">
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+            <form th:object = "${productos}" th:action="@{/save}"method="POST">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" th:field="*{nombre}" placeholder= "Nombre Cliente" id="nombres">
+                </div>
+                <div>
+                    <label for="nombre">Marca</label>
+                    <input type="text" th:field="*{marca}" placeholder= "Apellido 1 Cliente" id="nombres" aria-describedby="emailHelp">
+                </div>
+                <div>
+                    <label for="nombre">Apellido2</label>
+                    <input type="text" th:field="*{precio}" placeholder= "Apellido 2 Cliente" id="nombres" aria-describedby="emailHelp">
+                </div>
+                <div>
+                    <label for="nombre">Telefono</label>
+                    <input type="text" th:field="*{cantidad}" placeholder= "Telefono Cliente" id="nombres" aria-describedby="emailHelp">
+                </div>
+                <div>
+                    <label for="nombre">Email</label>
+                    <input type="text" th:field="*{descripcion}" placeholder= "Email Cliente" id="nombres" aria-describedby="emailHelp">
+                </div>
+
+                <br>
+                <button type="sibmit" value="Guardar">Submit</button>
+
+
+
+            </form>
+        </body>
+    </html>
+

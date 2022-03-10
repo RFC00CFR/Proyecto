@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Productos</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1 th:text="${titulo}"></h1>
+        <table>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Descripcion</th>
+            </thead>
+            <tbody>
+            <th:block th:each="prod : ${productos}">
+                <tr>
+                    <td th:text="${prod.getId}"></td>
+                    <td th:text="${prod.getNombre}"></td>
+                    <td th:text="${prod.getMarca}"></td>
+                    <td th:text="${prod.getPrecio}"></td>
+                    <td th:text="${prod.getCantidad}"></td>
+                    <td th:text="${prod.getDescripcion}"></td>
+                    <td>
+                        <a th:href="@{/delete/{id}(id=${prod.getId})}">Eliminar</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
