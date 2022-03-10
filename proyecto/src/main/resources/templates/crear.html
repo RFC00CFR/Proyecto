@@ -11,23 +11,23 @@
             <form th:object = "${productos}" th:action="@{/save}"method="POST">
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" th:field="*{nombre}" placeholder= "Nombre Cliente" id="nombres">
+                    <input type="text" th:field="*{nombre}" placeholder= "Nombre" id="nombres">
                 </div>
                 <div>
                     <label for="nombre">Marca</label>
-                    <input type="text" th:field="*{marca}" placeholder= "Apellido 1 Cliente" id="nombres" aria-describedby="emailHelp">
+                    <input type="text" th:field="*{marca}" placeholder= "Marca" id="marcas">
                 </div>
                 <div>
-                    <label for="nombre">Apellido2</label>
-                    <input type="text" th:field="*{precio}" placeholder= "Apellido 2 Cliente" id="nombres" aria-describedby="emailHelp">
+                    <label for="nombre">Precio</label>
+                    <input type="text" th:field="*{precio}" placeholder= "Precio" id="precios">
                 </div>
                 <div>
-                    <label for="nombre">Telefono</label>
-                    <input type="text" th:field="*{cantidad}" placeholder= "Telefono Cliente" id="nombres" aria-describedby="emailHelp">
+                    <label for="nombre">Cantidad</label>
+                    <input type="text" th:field="*{cantidad}" placeholder= "Cantidad" id="cantidades">
                 </div>
                 <div>
-                    <label for="nombre">Email</label>
-                    <input type="text" th:field="*{descripcion}" placeholder= "Email Cliente" id="nombres" aria-describedby="emailHelp">
+                    <label for="nombre">Descripcion</label>
+                    <input type="text" th:field="*{descripcion}" placeholder= "Descripcion" id="descripciones">
                 </div>
 
                 <br>
