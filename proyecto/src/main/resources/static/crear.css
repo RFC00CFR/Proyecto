@@ -12,6 +12,7 @@ body{
     width: 100%;
     background-color: #f1f2f3;
 }
+
 h2{
     color: #02bfc0;
     margin-left: 10%;
@@ -50,6 +51,40 @@ button{
 
 button:hover {
   background-color: #008198;
+}
+label{
+    font-weight: bold;
+    color: #008198;
+    margin-left: 10%;
+}
+input[type=text], select {
+  width: 50%;
+  padding: 12px 10px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 10%;
+}
+button{
+  width: 30%; 
+  background-color: #02BFC0;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 2.5vh;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+  align-items: center;
+  margin-left: 30%;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+
 }
 
 div {
