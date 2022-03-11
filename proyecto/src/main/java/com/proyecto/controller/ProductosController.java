@@ -30,7 +30,7 @@ public class ProductosController {
     @GetMapping("productosN")
     public String crearProducto(Model model) {
         model.addAttribute("productos", new Productos());
-        return "crear";
+        return "productosN";
     }
 
     @PostMapping("/save")

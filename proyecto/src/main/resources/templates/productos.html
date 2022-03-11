@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Productos</title>
+        <link rel="stylesheet" th:href="@{productos.css}">
         <meta charset="UTF-8">
     </head>
     <body>
         <h1 th:text="${titulo}"></h1>
+        <div class="lista">
         <table>
             <thead class="thead-dark">
                 <tr>
@@ -26,11 +28,15 @@
                     <td th:text="${prod.getCantidad}"></td>
                     <td th:text="${prod.getDescripcion}"></td>
                     <td>
-                        <a th:href="@{/delete/{id}(id=${prod.getId})}">Eliminar</a>
+                        <div class="btn">
+                            <a th:href="@{/delete/{id}(id=${prod.getId})}">Eliminar</a>
+                        </div>
+                        
                     </td>
                 </tr>
             </th:block>
         </tbody>
     </table>
+    </div>        
 </body>
 </html>
