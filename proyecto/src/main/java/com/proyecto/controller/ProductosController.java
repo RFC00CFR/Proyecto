@@ -21,9 +21,9 @@ public class ProductosController {
     public String getLogin() {
         return "login";
     }
-    @GetMapping("home1")
-    public String getHome1() {
-        return "home1";
+    @GetMapping("home")
+    public String getHome() {
+        return "home";
     }
     @GetMapping("courses")
     public String getCourses() {
@@ -37,12 +37,12 @@ public class ProductosController {
 
     @GetMapping("/")
     public String getIndex() {
-        return "index";
+        return "home";
     }
 
     @GetMapping("index")
     public String getIndex1() {
-        return "index";
+        return "home";
     }
 
     @GetMapping("contact")

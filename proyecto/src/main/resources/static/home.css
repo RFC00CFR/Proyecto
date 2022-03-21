@@ -6,17 +6,7 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-/*body{
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}*/
-/*.container{
-    background-color: red;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}*/
+
 .navbar{
     width: 70%;
     margin-top: 8px;

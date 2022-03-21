@@ -4,27 +4,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title> TEST Please sign in</title>
+    <title>iniciar sesión</title>
 
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-<div class="container">
-    <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <p>
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
-        </p>
-        <p>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
-        </p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-</div>
-<div></div>
+    <div class="container">
+           <div class="navbar">
+               <nav>  
+                   <ul>
+                       <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
+                       <li><a href="home">Acerca de</a></li>
+                       <li><a href="login">iniciar sesión</a></li>
+                       <li><a href="contact">Contacto</a></li>
+                       <li><a href="faq">FAQ</a></li>
+                       <li><a href="">Galería</a></li>
+                       <li> 
+                            <form th:action="@{/logout}" method="post" id="form1">
+                            </form>
+                            <button class="bi bi-box-arrow-right" type="submit" form="form1" value="Submit"></button>
+                       <li>
+                           
+                           
+                           
+                       
+                       </li>
+                   </ul>
+               </nav>
+           </div>
+    <div class="content">
+        <form class="form-signin" method="post" action="/login">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <p>
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            </p>
+            <p>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+            </p>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+    <div></div>
 
 </body>
 <footer th:fragment="footer" class="bg-dark text-white fixed-bottom">
