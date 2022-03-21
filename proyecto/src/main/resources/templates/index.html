@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+
+        <link rel="stylesheet" th:href="@{home.css}">
+
+    </head>
+
+    <body>
+
+
+<!--    <div class="menu-outer">
+
+        <div class="table">
+            <ul id="horizontal-list">
+                <li><a href="index">Home</a></li>
+                <li><a href="mainusera">Users</a></li>
+                <li><a href="faq">FAQ</a></li>
+                <li><a href="contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+    </div>	-->
+
+
+    <div class="content">
+        <h1>Login</h1>
+        <form class="form" method="post">
+
+            <div class="txt_field1">
+                <input type="text" required>
+                <label>Usuario</label>
+            </div>
+
+            <div class="txt_field2">
+                <input type="password" required>
+                <label>Contrasena</label>
+            </div> 
+
+            <input class="boton" type="submit" value="Login">
+
+            <div class="signup"><a href="">Crear cuenta</a>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+<footer th:fragment="footer" class="bg-dark text-white fixed-bottom">
+    <div>
+        <p>Copyright Tienda &copy; 2022</p>
+    </div>
+</footer>	
+
+</html>

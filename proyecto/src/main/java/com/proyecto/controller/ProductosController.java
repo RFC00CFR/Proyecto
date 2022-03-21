@@ -11,12 +11,44 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class ProductosController {
 
     @Autowired
     private IProductosService productosService;
+
+    @GetMapping("login")
+    public String getLogin() {
+        return "login";
+    }
+    @GetMapping("home1")
+    public String getHome1() {
+        return "home1";
+    }
+    @GetMapping("courses")
+    public String getCourses() {
+        return "courses";
+    }
+
+    @GetMapping("faq")
+    public String getFaq() {
+        return "faq";
+    }
+
+    @GetMapping("/")
+    public String getIndex() {
+        return "index";
+    }
+
+    @GetMapping("index")
+    public String getIndex1() {
+        return "index";
+    }
+
+    @GetMapping("contact")
+    public String getContact() {
+        return "contact";
+    }
 
     @GetMapping("/productos")
     public String index(Model model) {
@@ -45,4 +77,3 @@ public class ProductosController {
         return "redirect:/productos";
     }
 }
-

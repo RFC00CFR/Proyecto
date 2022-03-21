@@ -6,8 +6,9 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1 th:text="${titulo}"></h1>
-        <div class="lista">
+    <head th:replace="plantilla/template::header"></head>
+    <h1 th:text="${titulo}"></h1>
+    <div class="lista">
         <table>
             <thead class="thead-dark">
                 <tr>
@@ -31,12 +32,18 @@
                         <div class="btn">
                             <a th:href="@{/delete/{id}(id=${prod.getId})}">Eliminar</a>
                         </div>
-                        
+
                     </td>
                 </tr>
             </th:block>
-        </tbody>
-    </table>
-    </div>        
+            </tbody>
+        </table>
+    </div> 
+
 </body>
+    <footer th:fragment="footer" class="bg-dark text-white fixed-bottom">
+        <div>
+            <p>Copyright Tienda &copy; 2022</p>
+        </div>
+    </footer>
 </html>
