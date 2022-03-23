@@ -15,22 +15,28 @@ public class Productos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
     private String nombre;
-    private String marca;
-    private String precio;
-    private String cantidad;
-    private String descripcion;
-    
-//    @ManyToOne
-//    @JoinColumn(name = "categoria_id")
-//    private Categorias categorias;
 
-    public long getId() {
+    private int precio;
+    private int cantidad;
+    private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "idmarca")
+    private Marca idmarca;
+    @ManyToOne
+    @JoinColumn(name = "idurl")
+    private Url idurl;
+    @ManyToOne
+    @JoinColumn(name = "idcategoria")
+    private Categorias idcategoria;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -42,27 +48,19 @@ public class Productos implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -74,6 +72,31 @@ public class Productos implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public Marca getIdmarca() {
+        return idmarca;
+    }
 
+    public void setIdmarca(Marca idmarca) {
+        this.idmarca = idmarca;
+    }
+
+    public Url getIdurl() {
+        return idurl;
+    }
+
+    public void setIdurl(Url idurl) {
+        this.idurl = idurl;
+    }
+
+    public Categorias getIdcategoria() {
+        return idcategoria;
+    }
+
+    public void setIdcategoria(Categorias idcategoria) {
+        this.idcategoria = idcategoria;
+    }
     
+ 
+
+
 }

@@ -12,7 +12,6 @@ public class ProductosService implements IProductosService {
     @Autowired
     private ProductosRepository productosRepository;
 
-
     @Override
     public List<Productos> getAllProductos() {
         return (List<Productos>) productosRepository.findAll();
@@ -37,5 +36,5 @@ public class ProductosService implements IProductosService {
     public boolean existeProductosById(long id) {
         return productosRepository.existsById(id);
     }
-    
+
 }

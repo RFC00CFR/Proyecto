@@ -1,17 +1,20 @@
-
 package com.proyecto.service;
 
 import com.proyecto.entity.Clientes;
 import java.util.List;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
+@Service
 public interface IClientesService {
 
-public List<Clientes> getAllClientes();
-public void createClientes(Clientes clientes);
-public Clientes getClientesById(long id);
-public void deleteClientes(long id);
-public boolean existeClientesById(long id);
+    public List<Clientes> getAllClientes();
+
+    public void createClientes(Clientes clientes);
+
+    public Clientes getClientesById(long id);
+
+    public void deleteClientes(long id);
+
+    public boolean existeClientesById(long id);
 
 }

@@ -1,13 +1,13 @@
 
 package com.proyecto.repository;
 
-import com.proyecto.entity.Categorias;
+import com.proyecto.entity.Role;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
 
 @Repository
-public interface CategoriasRepository extends CrudRepository<Categorias,Long>{
+public interface RoleRepository extends CrudRepository<Role,Long>{
 
 }

@@ -1,17 +1,16 @@
 package com.proyecto.service;
 
 import com.proyecto.entity.Categorias;
+import com.proyecto.repository.CategoriasRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.proyecto.repository.CategoriasRepository;
 
 @Service
 public class CategoriasService implements ICategoriasService {
 
     @Autowired
     private CategoriasRepository categoriasRepository;
-
 
     @Override
     public List<Categorias> getAllCategorias() {
@@ -37,5 +36,5 @@ public class CategoriasService implements ICategoriasService {
     public boolean existeCategoriasById(long id) {
         return categoriasRepository.existsById(id);
     }
-    
+
 }

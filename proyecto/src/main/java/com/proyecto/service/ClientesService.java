@@ -12,7 +12,6 @@ public class ClientesService implements IClientesService {
     @Autowired
     private ClientesRepository clientesRepository;
 
-
     @Override
     public List<Clientes> getAllClientes() {
         return (List<Clientes>) clientesRepository.findAll();
@@ -20,7 +19,7 @@ public class ClientesService implements IClientesService {
 
     @Override
     public void createClientes(Clientes clientes) {
-         clientesRepository.save(clientes);
+        clientesRepository.save(clientes);
     }
 
     @Override
@@ -37,5 +36,5 @@ public class ClientesService implements IClientesService {
     public boolean existeClientesById(long id) {
         return clientesRepository.existsById(id);
     }
-    
+
 }

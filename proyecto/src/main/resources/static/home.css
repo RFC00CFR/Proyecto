@@ -101,3 +101,5 @@ section ul a{
     color: #545e69;
     
 }
+select#locales option[value="en"]   
+{ background-image:url(usa.svg);   }

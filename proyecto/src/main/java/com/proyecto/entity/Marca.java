@@ -8,22 +8,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "categorias")
-public class Categorias implements Serializable {
+@Table(name = "marca")
+public class Marca implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idcategoria;
+    private int idmarca;
     private String nombre;
 
-    public int getIdcategoria() {
-        return idcategoria;
+    public int getIdmarca() {
+        return idmarca;
     }
 
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setIdmarca(int idmarca) {
+        this.idmarca = idmarca;
     }
 
     public String getNombre() {
@@ -33,8 +32,6 @@ public class Categorias implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
 
 
 }

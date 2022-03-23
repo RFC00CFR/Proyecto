@@ -67,7 +67,7 @@ h1{
 }
 
 .lista {
-    transform: translate(-50%,-40%);
+    transform: translate(-50%,-15%);
     position: absolute;
     margin: 0;
     left: 50%;
