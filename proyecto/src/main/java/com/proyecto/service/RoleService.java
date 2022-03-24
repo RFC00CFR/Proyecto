@@ -23,17 +23,17 @@ public class RoleService implements IRoleService {
     }
 
     @Override
-    public Role getRoleById(long id) {
+    public Role getRoleById(int id) {
         return roleRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteRole(long id) {
+    public void deleteRole(int id) {
         roleRepository.deleteById(id);
     }
 
     @Override
-    public boolean existeRoleById(long id) {
+    public boolean existeRoleById(int id) {
         return roleRepository.existsById(id);
     }
 

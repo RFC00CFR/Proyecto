@@ -23,17 +23,17 @@ public class CategoriasService implements ICategoriasService {
     }
 
     @Override
-    public Categorias getCategoriasById(long id) {
+    public Categorias getCategoriasById(int id) {
         return categoriasRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteCategorias(long id) {
+    public void deleteCategorias(int id) {
         categoriasRepository.deleteById(id);
     }
 
     @Override
-    public boolean existeCategoriasById(long id) {
+    public boolean existeCategoriasById(int id) {
         return categoriasRepository.existsById(id);
     }
 

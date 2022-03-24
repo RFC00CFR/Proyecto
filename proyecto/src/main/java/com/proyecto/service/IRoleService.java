@@ -11,10 +11,10 @@ public interface IRoleService {
 
     public void createRole(Role role);
 
-    public Role getRoleById(long id);
+    public Role getRoleById(int id);
 
-    public void deleteRole(long id);
+    public void deleteRole(int id);
 
-    public boolean existeRoleById(long id);
+    public boolean existeRoleById(int id);
 
 }

@@ -23,17 +23,17 @@ public class UrlService implements IUrlService {
     }
 
     @Override
-    public Url getUrlById(long id) {
+    public Url getUrlById(int id) {
         return urlRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteUrl(long id) {
+    public void deleteUrl(int id) {
         urlRepository.deleteById(id);
     }
 
     @Override
-    public boolean existeUrlById(long id) {
+    public boolean existeUrlById(int id) {
         return urlRepository.existsById(id);
     }
 

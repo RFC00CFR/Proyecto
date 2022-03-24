@@ -23,17 +23,17 @@ public class MarcaService implements IMarcaService {
     }
 
     @Override
-    public Marca getMarcaById(long id) {
+    public Marca getMarcaById(int id) {
         return marcaRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteMarca(long id) {
+    public void deleteMarca(int id) {
         marcaRepository.deleteById(id);
     }
 
     @Override
-    public boolean existeMarcaById(long id) {
+    public boolean existeMarcaById(int id) {
         return marcaRepository.existsById(id);
     }
 

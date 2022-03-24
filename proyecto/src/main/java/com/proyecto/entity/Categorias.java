@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
@@ -15,24 +17,9 @@ public class Categorias implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idcategoria;
-    private String nombre;
+    @Getter @Setter private int idcategoria;
+    @Getter @Setter private String nombre;
 
-    public int getIdcategoria() {
-        return idcategoria;
-    }
-
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
 
 

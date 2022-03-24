@@ -23,17 +23,17 @@ public class ProductosService implements IProductosService {
     }
 
     @Override
-    public Productos getProductosById(long id) {
+    public Productos getProductosById(int id) {
         return productosRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteProductos(long id) {
+    public void deleteProductos(int id) {
         productosRepository.deleteById(id);
     }
 
     @Override
-    public boolean existeProductosById(long id) {
+    public boolean existeProductosById(int id) {
         return productosRepository.existsById(id);
     }
 

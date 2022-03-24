@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "url")
@@ -17,24 +19,9 @@ import javax.persistence.Table;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idurl;
-    private String url;
+    @Getter @Setter private int idurl;
+    @Getter @Setter private String url;
 
-    public int getIdurl() {
-        return idurl;
-    }
-
-    public void setIdurl(int idurl) {
-        this.idurl = idurl;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
 
 }

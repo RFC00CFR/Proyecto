@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface MarcaRepository extends CrudRepository<Marca,Long>{
+public interface MarcaRepository extends CrudRepository<Marca,Integer>{
 
 }

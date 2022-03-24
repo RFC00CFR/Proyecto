@@ -11,10 +11,10 @@ public interface ICategoriasService {
 
     public void createCategorias(Categorias categorias);
 
-    public Categorias getCategoriasById(long id);
+    public Categorias getCategoriasById(int id);
 
-    public void deleteCategorias(long id);
+    public void deleteCategorias(int id);
 
-    public boolean existeCategoriasById(long id);
+    public boolean existeCategoriasById(int id);
 
 }

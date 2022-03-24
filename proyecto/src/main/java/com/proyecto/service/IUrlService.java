@@ -11,10 +11,10 @@ public interface IUrlService {
 
     public void createUrl(Url url);
 
-    public Url getUrlById(long id);
+    public Url getUrlById(int id);
 
-    public void deleteUrl(long id);
+    public void deleteUrl(int id);
 
-    public boolean existeUrlById(long id);
+    public boolean existeUrlById(int id);
 
 }

@@ -1,10 +1,10 @@
-
-package com.proyecto.auth;
-
-import java.util.Optional;
-
-public interface ApplicationUserDao {
-
-    Optional<ApplicationUser> selectApplicationUserByUsername(String username);
-
-}
+//
+//package com.proyecto.auth;
+//
+//import java.util.Optional;
+//
+//public interface ApplicationUserDao {
+//
+//    Optional<ApplicationUser> selectApplicationUserByUsername(String username);
+//
+//}

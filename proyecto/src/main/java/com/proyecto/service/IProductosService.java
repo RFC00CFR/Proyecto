@@ -11,10 +11,10 @@ public interface IProductosService {
 
     public void createProductos(Productos productos);
 
-    public Productos getProductosById(long id);
+    public Productos getProductosById(int id);
 
-    public void deleteProductos(long id);
+    public void deleteProductos(int id);
 
-    public boolean existeProductosById(long id);
+    public boolean existeProductosById(int id);
 
 }

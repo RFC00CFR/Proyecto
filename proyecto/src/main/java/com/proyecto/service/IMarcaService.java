@@ -11,10 +11,10 @@ public interface IMarcaService {
 
     public void createMarca(Marca categorias);
 
-    public Marca getMarcaById(long id);
+    public Marca getMarcaById(int id);
 
-    public void deleteMarca(long id);
+    public void deleteMarca(int id);
 
-    public boolean existeMarcaById(long id);
+    public boolean existeMarcaById(int id);
 
 }
