@@ -1,4 +1,3 @@
-
 package com.proyecto.entity;
 
 import java.io.Serializable;

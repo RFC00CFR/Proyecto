@@ -1,4 +1,3 @@
-
 package com.proyecto.repository;
 
 import com.proyecto.entity.Marca;

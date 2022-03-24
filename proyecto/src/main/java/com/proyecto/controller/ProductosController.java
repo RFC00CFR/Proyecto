@@ -29,31 +29,6 @@ public class ProductosController {
     @Autowired
     private IUrlService urlService;
 
-    @GetMapping("login")
-    public String getLogin() {
-        return "login";
-    }
-
-    @GetMapping("home")
-    public String getHome() {
-        return "home";
-    }
-
-    @GetMapping("faq")
-    public String getFaq() {
-        return "faq";
-    }
-
-    @GetMapping("/")
-    public String getIndex() {
-        return "home";
-    }
-
-    @GetMapping("contact")
-    public String getContact() {
-        return "contact";
-    }
-
     @GetMapping("/productos")
     public String productos(Model model) {
         List<Productos> listaProductos = productosService.getAllProductos();
@@ -97,34 +72,6 @@ public class ProductosController {
     public String eliminarProducto(@PathVariable("id") int idProducto) {
         productosService.deleteProductos(idProducto);
         return "redirect:/productos";
-    }
-
-    @GetMapping("/marcas")
-    public String marcas(Model model) {
-        List<Marca> listaMarcas = marcaService.getAllMarca();
-        model.addAttribute("titulo", "Marcas");
-        model.addAttribute("marcas", listaMarcas);
-        return "marcas";
-    }
-
-    @GetMapping("marcasN")
-    public String crearMarca(Model model) {
-        List<Marca> listaMarca = marcaService.getAllMarca();
-        model.addAttribute("marcas", new Marca());
-        model.addAttribute("marcas", listaMarca);
-        return "marcasN";
-    }
-
-    @PostMapping("/saveMarcas")
-    public String guardarMarca(@ModelAttribute Marca marca) {
-        marcaService.createMarca(marca);
-        return "redirect:/marcas";
-    }
-
-    @GetMapping("/deleteMarca/{id}")
-    public String eliminarMarca(@PathVariable("id") int idmarca) {
-        marcaService.deleteMarca(idmarca);
-        return "redirect:/marcas";
     }
 
 }
