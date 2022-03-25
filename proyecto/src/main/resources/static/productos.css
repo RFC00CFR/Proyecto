@@ -79,7 +79,8 @@ p{
 }
 .matriz{
     display: inline-block;
-    transform: translate(30%,30%);
+    transform: translate(20%,30%);
+    color:black;
     
 }
 .card-img-top {
@@ -87,17 +88,23 @@ p{
     height: 15vw;
     object-fit: contain;
     background-color: white;
+    color:black;
    
 }
 .card{
      margin-bottom: 80px;
      margin-right: 40px;
-         background-color: beige;
+     background-color: beige;
+     color:black;
 }
 section{
     display: flex;
     align-items: center;
     margin-top: 5%;
+}
+.cat{
+    color :black;
+    font-weight: bold;
 }
 section p{
     display: inline-block;
