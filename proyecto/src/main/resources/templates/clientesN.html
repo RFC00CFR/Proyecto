@@ -16,48 +16,48 @@
                     <h2>Registrar Cliente</h2>
                     <div>
                         <label for="id">ID</label>
-                        <input type="text" th:field="*{id}" placeholder= "ID" id="nombres">
+                        <input type="numbers" th:field="*{id}" placeholder= "id" id="nombres">
                     </div>
                     <div>
                         <label for="id">Nombre</label>
-                        <input type="text" th:field="*{nombre}" placeholder= "ID" id="nombres">
+                        <input type="text" th:field="*{nombre}" placeholder= "nombre" id="nombres">
                     </div>
 
                     <div>
                         <label for="id">Apellido 1</label>
-                        <input type="text" th:field="*{apellido1}" placeholder= "ID" id="nombres">
+                        <input type="text" th:field="*{apellido1}" placeholder= "apellido 1" id="nombres">
                     </div>        
 
                     <div>
                         <label for="id">Apellido 2</label>
-                        <input type="text" th:field="*{apellido2}" placeholder= "ID" id="nombres">
+                        <input type="text" th:field="*{apellido2}" placeholder= "apellido 2" id="nombres">
                     </div>
 
                     <div>
                         <label for="id">Email</label>
-                        <input type="text" th:field="*{email}" placeholder= "ID" id="nombres">
+                        <input type="text" th:field="*{email}" placeholder= "email" id="nombres">
                     </div>
 
                     <div>
                         <label for="id">Telefono</label>
-                        <input type="text" th:field="*{telefono}" placeholder= "ID" id="nombres">
+                        <input type="numbers" th:field="*{telefono}" placeholder= "telefono" id="nombres">
                     </div>
                     <div>
                         <label for="id">Fecha de Inscripcion</label>
-                        <input type="text" th:field="*{fecha_inscrip}" placeholder= "ID" id="nombres">
+                        <input type="date" th:field="*{fecha_inscrip}" placeholder= "fecha" id="nombres">
                     </div>    
 
                     <div>
                         <label for="nombre">Role</label>
-                        <input type="text" th:field="*{idrole}" placeholder= "Nombre" id="precios">
+                        <input type="text" th:field="*{idrole}" placeholder= "role" id="precios">
                     </div>
                     <div>
                         <label for="nombre">Enable</label>
-                        <input type="text" th:field="*{enable}" placeholder= "Nombre" id="precios">
+                        <input type="checkbox" checked th:field="*{enable}" placeholder= "enable" id="precios">
                     </div>
                     <div>
                         <label for="nombre">Password</label>
-                        <input type="text" th:field="*{password}" placeholder= "Nombre" id="precios">
+                        <input type="password" th:field="*{password}" placeholder= "password" id="precios">
                     </div>
                     <br>
 

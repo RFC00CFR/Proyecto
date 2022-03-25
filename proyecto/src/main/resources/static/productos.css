@@ -77,7 +77,15 @@ p{
     width: 70%;
     height: 400px;
 }
-
+.matriz{
+    display: inline-block;
+    transform: translate(40%,30%);
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
+}
 section{
     display: flex;
     align-items: center;

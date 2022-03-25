@@ -17,4 +17,5 @@ public interface IProductosService {
 
     public boolean existeProductosById(int id);
 
+    public int cantidadProductos();
 }

@@ -32,8 +32,10 @@ public class ProductosController {
     @GetMapping("/productos")
     public String productos(Model model) {
         List<Productos> listaProductos = productosService.getAllProductos();
+        long cantidad = productosService.cantidadProductos();
         model.addAttribute("titulo", "Productos");
         model.addAttribute("productos", listaProductos);
+        model.addAttribute("cantidad", cantidad);
         return "productos";
     }
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="Codeply">
+        <title>Codeply simple HTML/CSS/JS preview</title>
+        <base target="_self"> 
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">  
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+
+    </head>
+    <body>
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <div id="card-container"></div>
+        <script type="text/javascript">
+            var prod = /*[[${productos}]]*/ "";
+            var tasks = [{
+                    "title": "home",
+                    "color": "blue",
+                },
+                {
+                    "title": "city",
+                    "color": "green",
+                }
+            ];
+
+            let cardContainer;
+
+            let createTaskCard = (task) => {
+
+                let card = document.createElement('div');
+                card.className = 'card shadow cursor-pointer';
+
+                let cardBody = document.createElement('div');
+                cardBody.className = 'card-body';
+
+                let title = document.createElement('h5');
+                title.innerText = task.title;
+                title.className = 'card-title';
+
+                let color = document.createElement('div');
+                color.innerText = task.color;
+                color.className = 'card-color';
+
+
+                cardBody.appendChild(title);
+                cardBody.appendChild(color);
+                card.appendChild(cardBody);
+                cardContainer.appendChild(card);
+
+            }
+
+            let initListOfTasks = () => {
+                if (cardContainer) {
+                    document.getElementById('card-container').replaceWith(cardContainer);
+                    return;
+                }
+                var numero = 0;
+                cardContainer = document.getElementById('card-container');
+                tasks.forEach((task) => {
+                    createTaskCard(task);
+                    numero++;
+
+                });
+            };
+
+            initListOfTasks();
+        </script>
+    </body>
+</html>

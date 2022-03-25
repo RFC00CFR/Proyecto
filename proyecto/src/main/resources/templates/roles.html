@@ -37,20 +37,20 @@
                             <th scope="col">Editar</th>
                     </thead>
                     <tbody>
-                    <th:block th:each="marc : ${marcas}">
+                    <th:block th:each="marc : ${roles}">
                         <tr>
-                            <td th:text="${marc.getIdmarca}"></td>
+                            <td th:text="${marc.getIdrole}"></td>
                             <td th:text="${marc.getNombre}"></td>
 
                             <td>
                                 <div class="btn">
-                                    <a th:href="@{/deleteMarcas/{id}(id=${marc.getIdmarca})}">Eliminar</a>
+                                    <a th:href="@{/deleteRoles/{idrole}(id=${marc.getIdrole})}">Eliminar</a>
                                 </div>
 
                             </td>
                             <td>
                                 <div class="btn">
-                                    <a th:href="@{/editMarcas/{id}(id=${marc.getIdmarca})}">Edit</a>
+                                    <a th:href="@{/editRoles/{id}(id=${marc.getIdrole})}">Edit</a>
                                 </div>
                             </td>
                         </tr>

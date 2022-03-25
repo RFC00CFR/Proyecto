@@ -24,18 +24,22 @@ public class Clientes implements Serializable {
     @Getter @Setter private String email;
     @Getter @Setter private String telefono;
     @Getter @Setter private String fecha_inscrip;
-    @Getter @Setter private String enable;
+    @Getter @Setter private boolean enable;
     @Getter @Setter private String password;
     
     @ManyToOne
     @JoinColumn(name = "idrole")
     @Getter @Setter private Role idrole;
-
-
-
-
     
-    
-    
+    public  void test(){
+        this.isEnable();
+    }
 
 }
+
+
+    
+    
+    
+
+

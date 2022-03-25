@@ -37,4 +37,9 @@ public class ProductosService implements IProductosService {
         return productosRepository.existsById(id);
     }
 
+    @Override
+    public int cantidadProductos() {
+        return (int) productosRepository.count();
+    }
+
 }
