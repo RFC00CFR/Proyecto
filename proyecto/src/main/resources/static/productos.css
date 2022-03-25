@@ -79,12 +79,20 @@ p{
 }
 .matriz{
     display: inline-block;
-    transform: translate(40%,30%);
+    transform: translate(30%,30%);
+    
 }
 .card-img-top {
     width: 100%;
     height: 15vw;
     object-fit: contain;
+    background-color: white;
+   
+}
+.card{
+     margin-bottom: 80px;
+     margin-right: 40px;
+         background-color: beige;
 }
 section{
     display: flex;
