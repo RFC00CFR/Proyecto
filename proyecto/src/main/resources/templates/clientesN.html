@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html>
+        <head>
+            <title>Registrar un producto</title>
+            <link rel="stylesheet" th:href="@{productosN.css}">
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+            <div class="container">
+                <form th:object = ${clientep}
+                      th:action ="@{/saveClientes}"
+                      method="POST"
+                      >
+                    <h2>Registrar Cliente</h2>
+                    <div>
+                        <label for="id">ID</label>
+                        <input type="text" th:field="*{id}" placeholder= "ID" id="nombres">
+                    </div>
+                    <div>
+                        <label for="id">Nombre</label>
+                        <input type="text" th:field="*{nombre}" placeholder= "ID" id="nombres">
+                    </div>
+
+                    <div>
+                        <label for="id">Apellido 1</label>
+                        <input type="text" th:field="*{apellido1}" placeholder= "ID" id="nombres">
+                    </div>        
+
+                    <div>
+                        <label for="id">Apellido 2</label>
+                        <input type="text" th:field="*{apellido2}" placeholder= "ID" id="nombres">
+                    </div>
+
+                    <div>
+                        <label for="id">Email</label>
+                        <input type="text" th:field="*{email}" placeholder= "ID" id="nombres">
+                    </div>
+
+                    <div>
+                        <label for="id">Telefono</label>
+                        <input type="text" th:field="*{telefono}" placeholder= "ID" id="nombres">
+                    </div>
+                    <div>
+                        <label for="id">Fecha de Inscripcion</label>
+                        <input type="text" th:field="*{fecha_inscrip}" placeholder= "ID" id="nombres">
+                    </div>    
+
+                    <div>
+                        <label for="nombre">Role</label>
+                        <input type="text" th:field="*{idrole}" placeholder= "Nombre" id="precios">
+                    </div>
+                    <div>
+                        <label for="nombre">Enable</label>
+                        <input type="text" th:field="*{enable}" placeholder= "Nombre" id="precios">
+                    </div>
+                    <div>
+                        <label for="nombre">Password</label>
+                        <input type="text" th:field="*{password}" placeholder= "Nombre" id="precios">
+                    </div>
+                    <br>
+
+                    <button  class="btn btn-primary" type="submit" value="Guardar">Submit</button>
+                </form>
+            </div>
+        </body>
+    </html>
+

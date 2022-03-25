@@ -17,7 +17,7 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter private int idrole;
-    @Getter @Setter private String nombrerole;
+    @Getter @Setter private String nombre;
 
 
 }

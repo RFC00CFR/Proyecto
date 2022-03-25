@@ -17,45 +17,7 @@
             <div class="navbar">
                 <nav>  
                     <ul>
-                        <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
-                        <li><a href="home">Acerca de</a></li>
-                        <li><a href="login">iniciar sesión</a></li>
-                        <li><a href="contact">Contacto</a></li>
-                        <li><a href="faq">FAQ</a></li>
-                        <li><a href="">Galería</a></li>
-                        <li><a href="productos">Productos</a></li>
-                        <li><a href="productosN">Agregar Productos</a></li>
-                        <li><a href="marcas">Marcas</a></li>
-                        <li><a href="marcasN">Agregar Marca</a></li>
-                        <!--                        <li>  
-                                                    <span th:text="#{lang.change}"></span>:
-                                                    <select id="locales">
-                                                        <option value=""></option>
-                                                        <option value="en">usa</option>
-                                                        <option value="es" th:text="#{lang.es}"></option>
-                                                        <option value="fr" th:text="#{lang.fr}"></option>
-                                                    </select><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-                                                    </script>
-                                                    <script type="text/javascript">
-                                                        $(document).ready(function () {
-                                                            $("#locales").change(function () {
-                                                                var selectedOption = $('#locales').val();
-                                                                if (selectedOption != '') {
-                                                                    window.location.replace('home?lang=' + selectedOption);
-                                                                }
-                                                            });
-                                                        });
-                                                    </script></li>-->
-                        <li> 
-                            <form th:action="@{/logout}" method="post" id="form1">
-                            </form>
-                            <button class="bi bi-box-arrow-right" type="submit" form="form1" value="Submit"></button>
-                        </li>
-
-
-
-
-
+                        <li><a href="home">Home</a></li>
                     </ul>
                 </nav>
             </div>

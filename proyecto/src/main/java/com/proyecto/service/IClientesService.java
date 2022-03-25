@@ -11,10 +11,10 @@ public interface IClientesService {
 
     public void createClientes(Clientes clientes);
 
-    public Clientes getClientesById(long id);
+    public Clientes getClientesById(int id);
 
-    public void deleteClientes(long id);
+    public void deleteClientes(int id);
 
-    public boolean existeClientesById(long id);
+    public boolean existeClientesById(int id);
 
 }

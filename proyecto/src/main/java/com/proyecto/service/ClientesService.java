@@ -23,17 +23,17 @@ public class ClientesService implements IClientesService {
     }
 
     @Override
-    public Clientes getClientesById(long id) {
+    public Clientes getClientesById(int id) {
         return clientesRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteClientes(long id) {
+    public void deleteClientes(int id) {
         clientesRepository.deleteById(id);
     }
 
     @Override
-    public boolean existeClientesById(long id) {
+    public boolean existeClientesById(int id) {
         return clientesRepository.existsById(id);
     }
 

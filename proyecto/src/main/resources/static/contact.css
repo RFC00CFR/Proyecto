@@ -57,66 +57,7 @@ nav i{
 }
 h1{
     color: #008198;
-}
-/*@charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-*{
-    font-family: "Poppins", sans-serif;
-
-}
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-
-
-}
-
-li {
-    float: left;
-    height: 80px;
-
-
-}
-
-li a {
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    color: black;
-    text-align: left;
-    padding: 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-li a:hover {
-    background-color: #ffb700;
-    color: black;
-}
-
-.table {
-    display: table;
-    margin: 0 auto;
-}
-
-
-
-.menu-outer{
-    background-color: white;
-    border-radius: 25px;
-}
-
-
-body{
-    background-color: #f1f2f3;
-}
-
-*/.content{
+}.content{
     position:absolute;
     top:53%;
     left:50%;
@@ -125,7 +66,7 @@ body{
     background: #fff;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.5);
-    transform:translate(-50%,-80%);
+    transform:translate(-50%,-40%);
 }
 
 

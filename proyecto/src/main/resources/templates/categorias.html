@@ -17,7 +17,18 @@
             <div class="navbar">
                 <nav>  
                     <ul>
-                        <li><a href="home">Home</a></li>
+                        <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
+                        <li><a href="home">Acerca de</a></li>
+                        <li><a href="login">iniciar sesión</a></li>
+                        <li><a href="contact">Contacto</a></li>
+                        <li><a href="faq">FAQ</a></li>
+                        <li><a href="">Galería</a></li>
+                        <li><a href="adminpage">Admin</a></li>
+                        <li> 
+                            <form th:action="@{/logout}" method="post" id="form1">
+                            </form>
+                            <button class="bi bi-box-arrow-right" type="submit" form="form1" value="Submit"></button>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -32,36 +43,25 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
                             <th scope="col">Marca</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Url</th>
-                            <th scope="col">Categoria</th>
                             <th scope="col">Eliminar</th>
                             <th scope="col">Editar</th>
                     </thead>
                     <tbody>
-                    <th:block th:each="prod : ${productos}">
+                    <th:block th:each="cate : ${categorias}">
                         <tr>
-                            <td th:text="${prod.getId}"></td>
-                            <td th:text="${prod.getNombre}"></td>
-                            <td th:text="${prod.getIdmarca.getNombre}"></td>
-                            <td th:text="${prod.getPrecio}"></td>
-                            <td th:text="${prod.getCantidad}"></td>
-                            <td th:text="${prod.getDescripcion}"></td>
-                            <td  th:style="'background-image:url(' + ${prod.getIdurl.getUrl} + ');background-size: contain;background-repeat: no-repeat; min-width:300px; height:200px;'"></td>
-                            <td th:text="${prod.getIdcategoria.getNombre}"></td>
+                            <td th:text="${cate.getIdcategoria}"></td>
+                            <td th:text="${cate.getNombre}"></td>
+
                             <td>
                                 <div class="btn">
-                                    <a th:href="@{/deleteProducto/{id}(id=${prod.getId})}">Eliminar</a>
+                                    <a th:href="@{/deleteCategorias/{id}(id=${cate.getIdcategoria})}">Eliminar</a>
                                 </div>
 
                             </td>
                             <td>
                                 <div class="btn">
-                                <a th:href="@{/editProducto/{id}(id=${prod.getId})}">Edit</a>
+                                <a th:href="@{/editCategorias/{id}(id=${cate.getIdcategoria})}">Edit</a>
                                 </div>
                             </td>
                         </tr>
