@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
   
     @GetMapping("/")
-    public String getIndex() {
+    public String getIndex(Model model) {
+        model.addAttribute("url","home");
         return "home";
     }
     @GetMapping("/home")
-    public String getHome() {
+    public String getHome(Model model) {
+        model.addAttribute("url","home");
         return "home";
     }
 

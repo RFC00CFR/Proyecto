@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-	
 <html xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <head>
         <title>Home</title>
+        <base target="_self"> 
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">  
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" th:href="@{/css/login.css}">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" type="text/css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous" type="text/javascript"></script>
-<!--        <link rel="stylesheet" th:href="@{home.css}">-->
-        <link th:href="@{/css/plantilla.css}" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <!--        <h1 th:text="#{index.titulo}">xxx</h1>-->
-        <div class="container">
-            <navbar th:replace="plantilla/plantilla::navbar"></navbar>
-            <div class="content">
-                <h1 class="display-5">Acerca de</h1>
-                <p class="pharagraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum luctus erat, vitae pulvinar lorem faucibus vitae. Donec id felis tortor. Curabitur convallis dapibus efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus bibendum erat ultricies arcu pulvinar venenatis. Quisque dignissim, ante et volutpat aliquet, ipsum est auctor dolor, vitae vestibulum nibh massa eu risus. Ut vehicula quam nec congue varius. Vestibulum blandit, dui vitae cursus hendrerit, lectus nisl sollicitudin nibh, in cursus lorem lectus nec tortor.
-                </p>
-                <img th:src="@{/img/home01.png}" class="img-fluid" alt="...">
-                <img th:src="@{/img/home02.png}" class="img-fluid" alt="...">
-                <p class="pharagraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum luctus erat, vitae pulvinar lorem faucibus vitae. Donec id felis tortor. Curabitur convallis dapibus efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus bibendum erat ultricies arcu pulvinar venenatis. Quisque dignissim, ante et volutpat aliquet, ipsum est auctor dolor, vitae vestibulum nibh massa eu risus. Ut vehicula quam nec congue varius. Vestibulum blandit, dui vitae cursus hendrerit, lectus nisl sollicitudin nibh, in cursus lorem lectus nec tortor.
-                </p>
-                <p class="pharagraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum luctus erat, vitae pulvinar lorem faucibus vitae. Donec id felis tortor. Curabitur convallis dapibus efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus bibendum erat ultricies arcu pulvinar venenatis. Quisque dignissim, ante et volutpat aliquet, ipsum est auctor dolor, vitae vestibulum nibh massa eu risus. Ut vehicula quam nec congue varius. Vestibulum blandit, dui vitae cursus hendrerit, lectus nisl sollicitudin nibh, in cursus lorem lectus nec tortor.
-                </p>
-                <h1 class="display-5">Aliados comerciales</h1>
-                <img th:src="@{/img/home04.jpg}" class="img-fluid" alt="...">
-                <p class="pharagraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum luctus erat, vitae pulvinar lorem faucibus vitae. Donec id felis tortor. Curabitur convallis dapibus efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus bibendum erat ultricies arcu pulvinar venenatis. Quisque dignissim, ante et volutpat aliquet, ipsum est auctor dolor, vitae vestibulum nibh massa eu risus. Ut vehicula quam nec congue varius. Vestibulum blandit, dui vitae cursus hendrerit, lectus nisl sollicitudin nibh, in cursus lorem lectus nec tortor.
-                </p>
-                <div class="logos">
-                    <img th:src="@{/img/home03.png}" class="img-fluid" alt="...">
-                </div>
-            </div> 
-            <section>
-                <p>2022. All rights reserved</p>
-                <ul>
-                    <a href="">Terms of Use</a>
-                    <a href="">Sales</a>
-                    <a href="">legal</a>
-                    <a href="">Site Map</a>
+    <navbar th:replace="plantilla/plantilla::header"></navbar>
+    <div class="container">
+
+        <div class="content">
+            <h1 class="display-5" th:text="#{acerca de}">xxx</h1>
+            <p class="pharagraph">
+                test
+            </p>
+            <img th:src="@{/img/home01.png}" class="img-fluid" alt="...">
+            <img th:src="@{/img/home02.png}" class="img-fluid" alt="...">
+            <p class="pharagraph">
+                test2
+            </p>
+            <p class="pharagraph">
+                test3
+            </p>
+            <h1 class="display-5">Aliados comerciales</h1>
+            <img th:src="@{/img/home04.jpg}" class="img-fluid" alt="...">
+            <p class="pharagraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum luctus erat, vitae pulvinar lorem faucibus vitae. Donec id felis tortor. Curabitur convallis dapibus efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus bibendum erat ultricies arcu pulvinar venenatis. Quisque dignissim, ante et volutpat aliquet, ipsum est auctor dolor, vitae vestibulum nibh massa eu risus. Ut vehicula quam nec congue varius. Vestibulum blandit, dui vitae cursus hendrerit, lectus nisl sollicitudin nibh, in cursus lorem lectus nec tortor.
+            </p>
+            <div class="logos">
+                <img th:src="@{/img/home03.png}" class="img-fluid" alt="...">
+            </div>
+        </div> 
+    </div>
 
 
-
-                </ul>
-            </section>
-
-        </div>
-
-
-    </body>
+</body>
 </html>

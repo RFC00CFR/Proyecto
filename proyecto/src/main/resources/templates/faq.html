@@ -9,56 +9,56 @@
         <link href="/css/faq.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="container">
-            <navbar th:replace="plantilla/plantilla::navbar"></navbar>
-<!--            <div class="navbar">
-                <nav>  
-                    <ul>
-                        <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
-                        <li><a href="home">Acerca de</a></li>
-                        <li><a href="login">iniciar sesión</a></li>
-                        <li><a href="contact">Contacto</a></li>
-                        <li><a href="faq">FAQ</a></li>
-                        <li><a href="">Galería</a></li>
-                        <li><a href="adminpage">Admin</a></li>
-                        <li> 
-                            <form th:action="@{/logout}" method="post" id="form1">
-                            </form>
-                            <button class="bi bi-box-arrow-right" type="submit" form="form1" value="Submit"></button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>-->
-            <div class="content">
-                <h1>Frequently Asked Questions</h1>
-                <div class="wrap-collabsible"> 
-                    <input id="collapsible1" class="toggle" type="checkbox"> 
-                    <label for="collapsible1" class="lbl-toggle" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
-                    <div class="collapsible-content">
-                        <div class="content-inner">
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae nisl sit amet odio pretium pharetra. In porta gravida velit. Cras et dapibus ante, in semper ipsum. Proin odio lacus, dictum in lectus non, pharetra luctus neque.</p>
-                        </div>
+    <navbar th:replace="plantilla/plantilla::header"></navbar>
+    <div class="container">
+        <!--            <div class="navbar">
+                        <nav>  
+                            <ul>
+                                <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
+                                <li><a href="home">Acerca de</a></li>
+                                <li><a href="login">iniciar sesión</a></li>
+                                <li><a href="contact">Contacto</a></li>
+                                <li><a href="faq">FAQ</a></li>
+                                <li><a href="">Galería</a></li>
+                                <li><a href="adminpage">Admin</a></li>
+                                <li> 
+                                    <form th:action="@{/logout}" method="post" id="form1">
+                                    </form>
+                                    <button class="bi bi-box-arrow-right" type="submit" form="form1" value="Submit"></button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>-->
+        <div class="content">
+            <h1>Frequently Asked Questions</h1>
+            <div class="wrap-collabsible"> 
+                <input id="collapsible1" class="toggle" type="checkbox"> 
+                <label for="collapsible1" class="lbl-toggle" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
+                <div class="collapsible-content">
+                    <div class="content-inner">
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae nisl sit amet odio pretium pharetra. In porta gravida velit. Cras et dapibus ante, in semper ipsum. Proin odio lacus, dictum in lectus non, pharetra luctus neque.</p>
                     </div>
                 </div>
-
-                <div class="wrap-collabsible"> 
-                    <input id="collapsible2" class="toggle" type="checkbox"> 
-                    <label for="collapsible2" class="lbl-toggle" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
-                    <div class="collapsible-content">
-                        <div class="content-inner"><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae nisl sit amet odio pretium pharetra. In porta gravida velit. Cras et dapibus ante, in semper ipsum. Proin odio lacus, dictum in lectus non, pharetra luctus neque.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="wrap-collabsible"> 
-                    <input id="collapsible3" class="toggle" type="checkbox"> 
-                    <label for="collapsible3" class="lbl-toggle" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
-                    <div class="collapsible-content">
-                        <div class="content-inner"><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae nisl sit amet odio pretium pharetra. In porta gravida velit. Cras et dapibus ante, in semper ipsum. Proin odio lacus, dictum in lectus non, pharetra luctus neque.</p>
-                        </div>
-                    </div>
-                </div>	
             </div>
+
+            <div class="wrap-collabsible"> 
+                <input id="collapsible2" class="toggle" type="checkbox"> 
+                <label for="collapsible2" class="lbl-toggle" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
+                <div class="collapsible-content">
+                    <div class="content-inner"><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae nisl sit amet odio pretium pharetra. In porta gravida velit. Cras et dapibus ante, in semper ipsum. Proin odio lacus, dictum in lectus non, pharetra luctus neque.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap-collabsible"> 
+                <input id="collapsible3" class="toggle" type="checkbox"> 
+                <label for="collapsible3" class="lbl-toggle" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
+                <div class="collapsible-content">
+                    <div class="content-inner"><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae nisl sit amet odio pretium pharetra. In porta gravida velit. Cras et dapibus ante, in semper ipsum. Proin odio lacus, dictum in lectus non, pharetra luctus neque.</p>
+                    </div>
+                </div>
+            </div>	
         </div>
-    </body>
+    </div>
+</body>
 </html>
