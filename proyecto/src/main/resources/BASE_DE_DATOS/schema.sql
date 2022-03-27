@@ -56,16 +56,17 @@ CREATE TABLE `clientes` (
   `apellido1` varchar(45) NOT NULL,
   `apellido2` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `telefono` varchar(45) NOT NULL,
-  `fecha_inscrip` varchar(45) NOT NULL,
+  `telefono` int NOT NULL,
+  `fecha_inscrip` date NOT NULL,
   `idrole` int NOT NULL,
-  `enable` varchar(45) NOT NULL,
+  `enable` bit(1) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `idrole_idx` (`idrole`),
+  CONSTRAINT `FKmy18fevqo2hb8x2od0bkwomuu` FOREIGN KEY (`idrole`) REFERENCES `roles` (`role_id`),
   CONSTRAINT `idrole` FOREIGN KEY (`idrole`) REFERENCES `role` (`idrole`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,6 +75,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'joseph','mena','silesky','test@gmail.com',12345678,'2010-11-21',1,_binary '','test');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +91,7 @@ CREATE TABLE `marca` (
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`idmarca`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +100,7 @@ CREATE TABLE `marca` (
 
 LOCK TABLES `marca` WRITE;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
-INSERT INTO `marca` VALUES (1,'Adidas'),(2,'Reebok'),(3,'Samsung');
+INSERT INTO `marca` VALUES (1,'Adidas'),(2,'Reebok'),(3,'Samsung'),(8,'TEST');
 /*!40000 ALTER TABLE `marca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +128,7 @@ CREATE TABLE `productos` (
   CONSTRAINT `idcategoria` FOREIGN KEY (`idcategoria`) REFERENCES `categorias` (`idcategoria`),
   CONSTRAINT `idmarca` FOREIGN KEY (`idmarca`) REFERENCES `marca` (`idmarca`),
   CONSTRAINT `idurl` FOREIGN KEY (`idurl`) REFERENCES `url` (`idurl`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +137,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Cloudfoam Pure 2.0',1,45000,16,'Test1',1,1),(2,'Club C 85 Vintage Shoes',2,55000,30,'Test2',2,1),(4,'Galaxy S21',3,450000,10,'Test3',3,2);
+INSERT INTO `productos` VALUES (1,'Cloudfoam Pure 2.0',1,45000,16,'TENIS ADIDAS',1,1),(2,'Club C 85 Vintage Shoes',2,55000,30,'TENIS REEBOK',2,1),(3,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(4,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(5,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(6,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(7,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(8,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(9,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(10,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(11,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2),(12,'Galaxy S21',3,450000,10,'CECULAR SAMSUNG',3,2);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,9 +150,10 @@ DROP TABLE IF EXISTS `role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
   `idrole` int NOT NULL AUTO_INCREMENT,
-  `nombrerole` varchar(45) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`idrole`),
-  UNIQUE KEY `nombrerole_UNIQUE` (`nombrerole`)
+  UNIQUE KEY `nombrerole_UNIQUE` (`nombre`),
+  UNIQUE KEY `idrole_UNIQUE` (`idrole`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -162,6 +165,30 @@ LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
 INSERT INTO `role` VALUES (1,'admin'),(2,'employee'),(3,'level1'),(4,'level2'),(5,'level3');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roles` (
+  `role_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'USER'),(2,'CREATOR'),(3,'EDITOR'),(4,'ADMIN'),(5,'USER'),(6,'CREATOR'),(7,'EDITOR'),(8,'ADMIN');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -185,8 +212,63 @@ CREATE TABLE `url` (
 
 LOCK TABLES `url` WRITE;
 /*!40000 ALTER TABLE `url` DISABLE KEYS */;
-INSERT INTO `url` VALUES (4,'../static/d'),(1,'adidas.png'),(3,'galaxy.jpg'),(2,'reebok.png');
+INSERT INTO `url` VALUES (1,'/img/adidas.png'),(3,'/img/galaxy.jpg'),(2,'/img/reebok.png');
 /*!40000 ALTER TABLE `url` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `enabled` tinyint DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_id_UNIQUE` (`user_id`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'patrick','$2a$10$cTUErxQqYVyU2qmQGIktpup5chLEdhD2zpzNEyYqmxrHHJbSNDOG.',1),(2,'alex','$2a$10$.tP2OH3dEG0zms7vek4ated5AiQ.EGkncii0OpCcGq4bckS9NOULu',1),(3,'john','$2a$10$E2UPv7arXmp3q0LzVzCBNeb4B4AtbTAGjkefVDnSztOwE7Gix6kea',1),(4,'namhm','$2a$10$GQT8bfLMaLYwlyUysnGwDu6HMB5G.tin5MKT/uduv2Nez0.DmhnOq',1),(5,'admin','$2a$10$IqTJTjn39IU5.7sSCDQxzu3xug6z/LPU6IF0azE/8CkHCwYEnwBX.',1),(6,'joseph','$2a$10$DyNkjnSXZF6zHAZYx5T7vuNM.5Ngz7VWH5WskJdRDsnM/Vh4XTa/m',1),(7,'roberto','$2a$10$e1C5toiuxAesnMS3K66p1uE1ZJEdm1Y7mtUxlrrJkNq/Kbs7MLNNq',1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users_roles`
+--
+
+DROP TABLE IF EXISTS `users_roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users_roles` (
+  `user_id` int NOT NULL,
+  `role_id` int NOT NULL,
+  KEY `user_fk_idx` (`user_id`),
+  KEY `role_fk_idx` (`role_id`),
+  CONSTRAINT `role_fk` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users_roles`
+--
+
+LOCK TABLES `users_roles` WRITE;
+/*!40000 ALTER TABLE `users_roles` DISABLE KEYS */;
+INSERT INTO `users_roles` VALUES (1,1),(2,2),(3,3),(4,2),(4,3),(5,4);
+/*!40000 ALTER TABLE `users_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -198,4 +280,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-22 21:31:13
+-- Dump completed on 2022-03-26 18:56:29

@@ -36,8 +36,9 @@ a.navbar-brand{
 /*    display: flex;
     flex-direction: row;
     width: 80%;*/
-            display: flex;
-            justify-content: space-between;
+display: flex;
+justify-content: space-between;
+align-content: stretch;
 }
 .navbar-expand-lg{
 /*    display: contents;*/
@@ -52,3 +53,6 @@ a.navbar-brand{
     flex-wrap: initial;*/
 }
 
+.rightnavbar{
+    display: inline;
+}
