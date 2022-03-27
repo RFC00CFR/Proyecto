@@ -1,6 +1,6 @@
 package com.proyecto.controller;
 
-import com.proyecto.entity.Role;
+import com.proyecto.entity.Roles;
 import com.proyecto.service.IRoleService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class RoleController {
     
     @GetMapping("/roles")
     public String marca(Model model) {
-        List<Role> listaRoles = roleService.getAllRole();
+        List<Roles> listaRoles = roleService.getAllRole();
         model.addAttribute("titulo", "Roles");
         model.addAttribute("roles", listaRoles);
         return "roles";
@@ -29,14 +29,14 @@ public class RoleController {
 
     @GetMapping("rolesN")
     public String crearRole(Model model) {
-        List<Role> listaRole = roleService.getAllRole();
-        model.addAttribute("rolep", new Role());
+        List<Roles> listaRole = roleService.getAllRole();
+        model.addAttribute("rolep", new Roles());
         model.addAttribute("roles", listaRole);
         return "rolesN";
     }
 
     @PostMapping("/saveRoles")
-    public String guardarRole(@ModelAttribute Role role) {
+    public String guardarRole(@ModelAttribute Roles role) {
         roleService.createRole(role);
         return "redirect:/marcas";
     }
@@ -45,8 +45,8 @@ public class RoleController {
 
     @GetMapping("/editRoles/{id}")
     public String editarRole(@PathVariable("id") int idrole, Model model) {
-        Role p = roleService.getRoleById(idrole);
-        List<Role> listaRole = roleService.getAllRole();
+        Roles p = roleService.getRoleById(idrole);
+        List<Roles> listaRole = roleService.getAllRole();
         model.addAttribute("rolep", p);
         model.addAttribute("roles", listaRole);
         return "rolesN";

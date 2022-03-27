@@ -22,6 +22,8 @@ public class CategoriasController {
         List<Categorias> listaMarcas = categoriasService.getAllCategorias();
         model.addAttribute("titulo", "Categorias");
         model.addAttribute("categorias", listaMarcas);
+        model.addAttribute("url", "categorias");
+        model.addAttribute("link", "/categorias");
         return "categorias";
     }
 
@@ -30,6 +32,8 @@ public class CategoriasController {
         List<Categorias> listaCategoria = categoriasService.getAllCategorias();
         model.addAttribute("categoriap", new Categorias());
         model.addAttribute("categorias", listaCategoria);
+        model.addAttribute("url", "categoriasN");
+        model.addAttribute("link", "/categoriasN");
         return "categoriasN";
     }
 

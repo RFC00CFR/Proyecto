@@ -17,12 +17,12 @@ public class ClientesController {
     @Autowired
     private ClientesService clientesService;
 
-    
     @GetMapping("/clientes")
     public String productos(Model model) {
         List<Clientes> listaClientes = clientesService.getAllClientes();
         model.addAttribute("titulo", "Clientes");
         model.addAttribute("clientes", listaClientes);
+        model.addAttribute("link", "/clientes");
         return "clientes";
     }
 

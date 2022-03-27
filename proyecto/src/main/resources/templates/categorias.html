@@ -3,395 +3,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Productos</title>
+        <title>Categorias</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-        <link rel="stylesheet" th:href="@{productos.css}">
+        <link rel="stylesheet" th:href="@{/css/productos.css}">
         <meta charset="UTF-8">
     </head>
     <body>
+    <navbar th:replace="plantilla/plantilla2::header"></navbar>
+    <div class="container">
 
+    </div>
+    <div class="content">
+        <h1 th:text="${titulo}"></h1>
+        <div class="lista">
+            <table>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Editar</th>
+                </thead>
+                <tbody>
+                <th:block th:each="cate : ${categorias}">
+                    <tr>
+                        <td th:text="${cate.getIdcategoria}"></td>
+                        <td th:text="${cate.getNombre}"></td>
 
-        <div class="container">
-            <navbar th:replace="plantilla/plantilla::navbar"></navbar>
-<!--            <div class="navbar">
-                <nav>  
-                    <ul>
-                        <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
-                        <li><a href="home">Acerca de</a></li>
-                        <li><a href="login">iniciar sesión</a></li>
-                        <li><a href="contact">Contacto</a></li>
-                        <li><a href="faq">FAQ</a></li>
-                        <li><a href="">Galería</a></li>
-                        <li><a href="adminpage">Admin</a></li>
-                        <li> 
-                            <form th:action="@{/logout}" method="post" id="form1">
-                            </form>
-                            <button class="bi bi-box-arrow-right" type="submit" form="form1" value="Submit"></button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>-->
+                        <td>
+                            <div class="btn">
+                                <a th:href="@{/deleteCategorias/{id}(id=${cate.getIdcategoria})}">Eliminar</a>
+                            </div>
 
-
-
-        </div>
-        <div class="content">
-            <h1 th:text="${titulo}"></h1>
-            <div class="lista">
-                <table>
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Marca</th>
-                            <th scope="col">Eliminar</th>
-                            <th scope="col">Editar</th>
-                    </thead>
-                    <tbody>
-                    <th:block th:each="cate : ${categorias}">
-                        <tr>
-                            <td th:text="${cate.getIdcategoria}"></td>
-                            <td th:text="${cate.getNombre}"></td>
-
-                            <td>
-                                <div class="btn">
-                                    <a th:href="@{/deleteCategorias/{id}(id=${cate.getIdcategoria})}">Eliminar</a>
-                                </div>
-
-                            </td>
-                            <td>
-                                <div class="btn">
+                        </td>
+                        <td>
+                            <div class="btn">
                                 <a th:href="@{/editCategorias/{id}(id=${cate.getIdcategoria})}">Edit</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </th:block>
-                    </tbody>
-                </table>
-            </div> 
-        </div>
-
-
-        <!--                        <td><img th:src="@{/{image}(image=${prod.getIdurl.getUrl})}" width="100%" height="100%"></td>-->
-
-
-
-
-
-
-        <!--            <section>
-                        <p>2022. All rights reserved</p>
-                        <ul>
-                            <a href="">Terms of Use</a>
-                            <a href="">Sales</a>
-                            <a href="">legal</a>
-                            <a href="">Site Map</a>
-        
-        
-        
-                        </ul>
-                    </section>-->
-    </body>
-    <!--    <footer th:fragment="footer" class="bg-dark text-white fixed-bottom">
-            <div>
-                <p>Copyright Tienda &copy; 2022</p>
-            </div>-->
+                            </div>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div> 
+    </div>
 </footer>
 </html>
-
-
-<!--<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <meta name="generator" content="Hugo 0.84.0">
-        <title>Album example · Bootstrap v5.0</title>
-
-        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-
-
-
-         Bootstrap core CSS 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-        <link th:href="@{album.css}" rel="stylesheet">
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
-
-            @media (min-width: 768px) {
-                .bd-placeholder-img-lg {
-                    font-size: 3.5rem;
-                }
-            }
-        </style>
-
-
-
-    </head>
-    <body>
-        <script>
-            var addCols = function (num) {
-                for (var i = 1; i <= num; i++) {
-                    var myCol = $('<div class="col-sm-3 col-md-3 pb-2"></div>');
-                    var myPanel = $('<div class="card card-outline-info" id="' + i + 'Panel"><div class="card-block"><div class="card-title"><span>Card #' + i + '</span><button type="button" class="close" data-target="#' + i + 'Panel" data-dismiss="alert"><span class="float-right"><i class="fa fa-remove"></i></span></button></div><p>Some text in ' + i + ' </p><img src="//placehold.it/50/eeeeee" class="rounded rounded-circle"></div></div>');
-                    myPanel.appendTo(myCol);
-                    myCol.appendTo('#contentPanel');
-                }
-
-
-                $('.close').on('click', function (e) {
-                    e.stopPropagation();
-                    var $target = $(this).parents('.col-sm-3');
-                    $target.hide('slow', function () {
-                        $target.remove();
-                    });
-                });
-            };
-
-            $('#btnGen').click(function () {
-                addCols($('#numPanels').val());
-                return false;
-            });
-        </script>
-        <header>
-            <div class="collapse bg-dark" id="navbarHeader">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-md-7 py-4">
-                            <h4 class="text-white">About</h4>
-                            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                        </div>
-                        <div class="col-sm-4 offset-md-1 py-4">
-                            <h4 class="text-white">Contact</h4>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                                <li><a href="#" class="text-white">Email me</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar navbar-dark bg-dark shadow-sm">
-                <div class="container">
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                        <strong>Album</strong>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <main>
-
-
-            
-              <section class="py-5 text-center container">
-                <div class="row py-lg-5">
-                  <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Album example</h1>
-                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                    <p>
-                      <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                    </p>
-                  </div>
-                </div>
-              </section>
-            
-              <div class="album py-5 bg-light">
-                <div class="container">
-            
-                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-            
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-            
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-        </main>
-
-        <footer class="text-muted py-5">
-            <div class="container">
-                <p class="float-end mb-1">
-                    <a href="#">Back to top</a>
-                </p>
-                <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-                <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-            </div>
-        </footer>
-
-
-        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-        <div class="container">
-            <h2>Add some cards..</h2>
-            <form class="form-inline">
-                <input class="form-control col-1" type="text" id="numPanels" value="17" maxlength="3" />
-                <button type="button" class="btn btn-info" id="btnGen">Generate</button>
-            </form>
-            <br>
-            <div class="row" id="contentPanel">
-
-            </div>
-        </div>
-
-    </body>
-</html>
--->
-

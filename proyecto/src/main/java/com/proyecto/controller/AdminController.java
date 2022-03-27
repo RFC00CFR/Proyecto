@@ -5,12 +5,17 @@
 package com.proyecto.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
-        @GetMapping("/adminpage")
-    public String getAdminpage() {
+
+    @GetMapping("/adminpage")
+    public String getAdminpage(Model model) {
+        model.addAttribute("url", "adminpage");
+        model.addAttribute("titulo", "Administrador");
+        model.addAttribute("link", "/adminpage");
         return "adminpage";
     }
 }

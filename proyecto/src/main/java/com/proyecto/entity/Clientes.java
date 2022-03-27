@@ -29,7 +29,7 @@ public class Clientes implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "idrole")
-    @Getter @Setter private Role idrole;
+    @Getter @Setter private Roles idrole;
     
     public  void test(){
         this.isEnable();

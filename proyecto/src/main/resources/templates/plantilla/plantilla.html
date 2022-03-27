@@ -34,10 +34,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="adminpage" th:text="#{administrador}">xxx</a>
                                     </li> 
-
-                                    <!--                                    <li class="nav-item">
-                                                                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                                                                        </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -61,7 +57,7 @@
                                     $("#locales").change(function () {
                                         var selectedOption = $('#locales').val();
                                         if (selectedOption != '') {
-                                            window.location.replace(url +'?lang=' + selectedOption);
+                                            window.location.replace(url + '?lang=' + selectedOption);
                                         }
                                     });
                                 });
@@ -70,10 +66,7 @@
                                 <input type="submit" value="Logout" />
                             </form>
                         </div>
-
-
                     </div>
-
                 </nav>
             </div>
 
@@ -84,18 +77,7 @@
                 </ol>
             </nav>
         </header>
-
-
-        <!--    <li><a href="home"><i class="bi bi-emoji-sunglasses"></i></a></li>
-            <li><a href="home">Acerca de</a></li>
-            <li><a href="login">iniciar sesión</a></li>
-            <li><a href="contact">Contacto</a></li>
-            <li><a href="faq">FAQ</a></li>
-            <li><a href="">Galería</a></li>
-            <li><a href="adminpage">Admin</a></li>-->
-
-
-
+        
         <!-- Footer -->
         <footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->

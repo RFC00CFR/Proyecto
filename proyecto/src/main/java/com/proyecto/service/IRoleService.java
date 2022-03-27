@@ -1,17 +1,17 @@
 package com.proyecto.service;
 
-import com.proyecto.entity.Role;
+import com.proyecto.entity.Roles;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface IRoleService {
 
-    public List<Role> getAllRole();
+    public List<Roles> getAllRole();
 
-    public void createRole(Role role);
+    public void createRole(Roles role);
 
-    public Role getRoleById(int id);
+    public Roles getRoleById(int id);
 
     public void deleteRole(int id);
 

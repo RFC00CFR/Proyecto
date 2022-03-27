@@ -1,6 +1,6 @@
 package com.proyecto.service;
 
-import com.proyecto.entity.Role;
+import com.proyecto.entity.Roles;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,17 @@ public class RoleService implements IRoleService {
     private RoleRepository roleRepository;
 
     @Override
-    public List<Role> getAllRole() {
-        return (List<Role>) roleRepository.findAll();
+    public List<Roles> getAllRole() {
+        return (List<Roles>) roleRepository.findAll();
     }
 
     @Override
-    public void createRole(Role role) {
+    public void createRole(Roles role) {
         roleRepository.save(role);
     }
 
     @Override
-    public Role getRoleById(int id) {
+    public Roles getRoleById(int id) {
         return roleRepository.findById(id).orElse(null);
     }
 

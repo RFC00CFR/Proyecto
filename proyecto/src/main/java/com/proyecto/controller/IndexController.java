@@ -14,11 +14,13 @@ public class IndexController {
     @GetMapping("/")
     public String getIndex(Model model) {
         model.addAttribute("url","home");
+        model.addAttribute("link", "/home");
         return "home";
     }
     @GetMapping("/home")
     public String getHome(Model model) {
         model.addAttribute("url","home");
+        model.addAttribute("link", "/home");
         return "home";
     }
 
@@ -34,6 +36,8 @@ public class IndexController {
     public String getTest(Model model) {
         List<Productos> listaProductos = productosService.getAllProductos();
         model.addAttribute("productos", listaProductos);
+        model.addAttribute("url","test");
+        model.addAttribute("link", "/test");
         return "test";
     }
 }
