@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <head>
         <title>Productos</title>
         <base target="_self"> 
@@ -13,33 +12,55 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" th:href="@{productos.css}">
+        <!--        <link rel="stylesheet" th:href="@{productos.css}">-->
+        <link rel="stylesheet" th:href="@{/css/productos.css}">
         <meta charset="UTF-8">
     </head>
     <body>
 
-<navbar th:replace="plantilla/plantilla::navbar"></navbar>
 
-        <!-- <div class="content">
-             <h1 th:text="${titulo}"></h1>
-             <div class="lista">
-                 <table>
-                     <thead class="thead-dark">
-                         <tr>
-                             <th scope="col">Id</th>
-                             <th scope="col">Nombre</th>
-                             <th scope="col">Marca</th>
-                             <th scope="col">Precio</th>
-                             <th scope="col">Cantidad</th>
-                             <th scope="col">Descripcion</th>
-                             <th scope="col">Url</th>
-                             <th scope="col">Categoria</th>
-                             <th scope="col">Eliminar</th>
-                             <th scope="col">Editar</th>
-                     </thead> 
-                     <tbody>-->
-        <h1 th:text="${titulo}"></h1>
-        <div class="container">
+
+
+    <navbar th:replace="plantilla/plantilla::header"></navbar>
+    <!--        <div class="box">
+                <div>One</div>
+                <div>Two</div>
+                <div>Three
+                    <br>has
+                    <br>extra
+                    <br>text
+                </div>
+            </div> -->
+    <h1 th:text="${titulo}"></h1>
+    <div class="container">
+        <th:block th:each="prod : ${productos}">
+            <div class="matriz">
+                <div class="card" style="width: 20rem;">
+                    <img th:src="@{${prod.getIdurl.getUrl}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">[[${prod.getNombre}]]</h5>
+                        <p class="card-text"><section class="cat">Descripcion:</section> [[${prod.getDescripcion}]]</p>
+                        <p class="card-text"><section class="cat">Marca:</section> [[${prod.getIdmarca.getNombre}]]</p>
+                        <p class="card-text"><section class="cat">Precio:</section> [[${prod.getPrecio}]]</p>
+                        <p class="card-text"><section class="cat">Cantidad:</section> [[${prod.getCantidad}]]</p>
+                        <p class="card-text"><section class="cat">Categoria:</section> [[${prod.getIdcategoria.getNombre}]]</p>
+                        <div class="btn">
+                            <a th:href="@{/deleteProducto/{id}(id=${prod.getId})}">Eliminar</a>
+                        </div>
+                        <div class="btn">
+                            <a th:href="@{/editProducto/{id}(id=${prod.getId})}">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div> 
+</body>
+
+<div class="foot">
+    <footer th:replace="plantilla/plantilla::footer"></footer>
+</div>
+</html>
 <!--            <div class="navbar">
                 <nav>  
                     <ul>
@@ -58,55 +79,7 @@
                     </ul>
                 </nav>
             </div>-->
-            <th:block th:each="prod : ${productos}">
-                <div class="matriz">
-                    <div class="card" style="width: 20rem;">
-                        <img th:src="@{${prod.getIdurl.getUrl}}" class="card-img-top" alt="...">
 
-                        <div class="card-body">
-                            <h5 class="card-title">[[${prod.getNombre}]]</h5>
-                            <p class="card-text"><section class="cat">Descripcion:</section> [[${prod.getDescripcion}]]</p>
-                            <p class="card-text"><section class="cat">Marca:</section> [[${prod.getIdmarca.getNombre}]]</p>
-                            <p class="card-text"><section class="cat">Precio:</section> [[${prod.getPrecio}]]</p>
-                            <p class="card-text"><section class="cat">Cantidad:</section> [[${prod.getCantidad}]]</p>
-                            <p class="card-text"><section class="cat">Categoria:</section> [[${prod.getIdcategoria.getNombre}]]</p>
-                            <div class="btn">
-                                <a th:href="@{/deleteProducto/{id}(id=${prod.getId})}">Eliminar</a>
-                            </div>
-                            <div class="btn">
-                                <a th:href="@{/editProducto/{id}(id=${prod.getId})}">Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--                        <tr>
-                                            
-                
-                                            <td th:text="${prod.getId}"></td>
-                                            <td th:text="${prod.getNombre}"></td>
-                                            <td th:text="${prod.getIdmarca.getNombre}"></td>
-                                            <td th:text="${prod.getPrecio}"></td>
-                                            <td th:text="${prod.getCantidad}"></td>
-                                            <td th:text="${prod.getDescripcion}"></td>
-                                            <td  th:style="'background-image:url(' + ${prod.getIdurl.getUrl} + ');background-size: contain;background-repeat: no-repeat; min-width:300px; height:200px;'"></td>
-                                            <td th:text="${prod.getIdcategoria.getNombre}"></td>
-                                            <td>
-                                                <div class="btn">
-                                                    <a th:href="@{/deleteProducto/{id}(id=${prod.getId})}">Eliminar</a>
-                                                </div>
-                
-                                            </td>
-                                            <td>
-                                                <div class="btn">
-                                                    <a th:href="@{/editProducto/{id}(id=${prod.getId})}">Edit</a>
-                                                </div>
-                                            </td>
-                                        </tr>-->
-            </th:block>
-        </tbody>
-    </table> 
-</div> 
-</div>
 
 
 
@@ -123,7 +96,48 @@
 
             </ul>
         </section>-->
-</body>
-<footer th:replace="plantilla/plantilla::footer"></footer>
 
-</html>
+
+<!--                        <tr>
+                            
+
+                            <td th:text="${prod.getId}"></td>
+                            <td th:text="${prod.getNombre}"></td>
+                            <td th:text="${prod.getIdmarca.getNombre}"></td>
+                            <td th:text="${prod.getPrecio}"></td>
+                            <td th:text="${prod.getCantidad}"></td>
+                            <td th:text="${prod.getDescripcion}"></td>
+                            <td  th:style="'background-image:url(' + ${prod.getIdurl.getUrl} + ');background-size: contain;background-repeat: no-repeat; min-width:300px; height:200px;'"></td>
+                            <td th:text="${prod.getIdcategoria.getNombre}"></td>
+                            <td>
+                                <div class="btn">
+                                    <a th:href="@{/deleteProducto/{id}(id=${prod.getId})}">Eliminar</a>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="btn">
+                                    <a th:href="@{/editProducto/{id}(id=${prod.getId})}">Edit</a>
+                                </div>
+                            </td>
+                        </tr>-->
+
+
+<!-- <div class="content">
+     <h1 th:text="${titulo}"></h1>
+     <div class="lista">
+         <table>
+             <thead class="thead-dark">
+                 <tr>
+                     <th scope="col">Id</th>
+                     <th scope="col">Nombre</th>
+                     <th scope="col">Marca</th>
+                     <th scope="col">Precio</th>
+                     <th scope="col">Cantidad</th>
+                     <th scope="col">Descripcion</th>
+                     <th scope="col">Url</th>
+                     <th scope="col">Categoria</th>
+                     <th scope="col">Eliminar</th>
+                     <th scope="col">Editar</th>
+             </thead> 
+             <tbody>-->

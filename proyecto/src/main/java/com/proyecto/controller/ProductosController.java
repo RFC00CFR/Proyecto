@@ -36,6 +36,7 @@ public class ProductosController {
         model.addAttribute("titulo", "Productos");
         model.addAttribute("productos", listaProductos);
         model.addAttribute("cantidad", cantidad);
+        model.addAttribute("link", "/productos");
         return "productos";
     }
 
