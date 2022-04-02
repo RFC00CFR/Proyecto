@@ -3,17 +3,148 @@
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" th:href="@{/css/plantilla.css}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <style>
+            #tooltip {
+                background: #333;
+                color: white;
+                font-weight: bold;
+                padding: 4px 8px;
+                font-size: 13px;
+                border-radius: 4px;
+            }
+            #arrow,
+            #arrow::before {
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: inherit;
+            }
+
+            #arrow {
+                visibility: hidden;
+            }
+
+            #arrow::before {
+                visibility: visible;
+                content: '';
+                transform: rotate(45deg);
+            }
+
+            #tooltip[data-popper-placement^='top'] > #arrow {
+                bottom: -4px;
+            }
+
+            #tooltip[data-popper-placement^='bottom'] > #arrow {
+                top: -4px;
+            }
+
+            #tooltip[data-popper-placement^='left'] > #arrow {
+                right: -4px;
+            }
+
+            #tooltip[data-popper-placement^='right'] > #arrow {
+                left: -4px;
+            }
+            body {
+                overflow-x:hidden;
+            }
+
+            .container-fluid {
+                padding:0px;
+            }
+
+            .col-lg-4 {
+                text-align: center;
+                padding: 30px;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .example {
+                border: 1px solid #e5e5e5;
+                background-color: #fcfcfc;
+                padding: 1em;
+            }
+
+            .example .html {
+                margin: 2em 0em 0em 0em;
+            }
+
+            pre {
+                padding: 0;
+            }
+
+            .main-icon {
+                font-size:16rem;
+                color: #ff7826;
+                text-shadow: 0 0 10px rgba(0,0,0,0.4);
+            }
+
+            h1, h2 {
+                color: #ff7826;
+            }
+
+            .html {
+                display: block;
+                padding: none;
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+
+            .html .xml {
+                min-height: 6em;
+            }
+
+            .bs-docs-header {
+                margin-bottom: 0;
+                background: #337ab7;
+                color: #fff;
+                padding-top:80px;
+                padding-bottom:80px;
+                border-radius:0px !important;
+                margin-bottom:80px;
+            }
+
+            .bs-docs-header .aff,
+            .bs-docs-header .aff:hover,
+            .bs-docs-header .aff:active {
+                color: white!important;
+                text-decoration: underline;
+            }
+
+            .bs-docs-header .btn {
+                padding: 15px 30px;
+                font-size: 20px;
+                margin-top:30px;
+            }
+
+            .btn-outline-inverse, .btn-outline-inverse:active {
+                color: #fff!important;
+                background-color: transparent;
+                border-color: #fff;
+            }
+            .btn-outline-inverse:hover {
+                background-color:white!important;
+                color:#337ab7!important;
+            }
+
+            .row {
+                padding-left:5%;
+                padding-right:5%;
+            }
+        </style>
+
     </head>
     <body>
+
         <header th:fragment="header">
             <div class="navbar">
                 <nav th:fragment="navbar"class="navbar navbar-expand-lg " >
                     <div class="container-fluid">
                         <div>
                             <a class="navbar-brand" href="#" th:text="#{tienda}">xxx</a>
+
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -40,29 +171,29 @@
 
 
                         <div class="rightnavbar">
-                            <span th:text="#{lang.change}"></span>
-                            <select id="locales">
-                                <option value=""></option>
-                                <!--        <option value="en" th:text="#{lang.eng}"></option>-->
-                                <option value="en" th:text="#{lang.eng}"></option>
-                                <option value="es" th:text="#{lang.es}"></option>
-                                <option value="fr" th:text="#{lang.fr}"></option>
-                            </select>
 
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-                            </script>
-                            <script type="text/javascript">
-                                var url = /*[[${url}]]*/ "";
-                                $(document).ready(function () {
-                                    $("#locales").change(function () {
-                                        var selectedOption = $('#locales').val();
-                                        if (selectedOption != '') {
-                                            window.location.replace(url + '?lang=' + selectedOption);
-                                        }
-                                    });
-                                });
-                            </script>
-                            <form th:action="@{/logout}" method="post">
+
+
+                            <!--<select class="selectpicker" data-live-search="true">
+                                                            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+                                                            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                                                            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                                                        </select>-->
+
+
+
+                            <!--<select class="selectpicker" data-width="fit" id="locales">
+                                                            <option value="en" data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                                            <option value="es" data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
+                                                        </select>-->
+
+
+
+
+
+                            <!--                            <select class="selectpicker countrypicker" data-live-search="true" data-flag="true" ></select>-->
+
+                            <form th:action="@{/logout}" method="post" class="logout">
                                 <input type="submit" value="Logout" />
                             </form>
                         </div>
@@ -77,7 +208,7 @@
                 </ol>
             </nav>
         </header>
-        
+
         <!-- Footer -->
         <footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
@@ -189,19 +320,84 @@
                             </p>
                             <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                             <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+
+                            <span th:text="#{lang.change}"></span>
+                            <select id="locales" class="selectpicker" data-width="fit">
+                                <option value="en" th:text="#{lang.eng}" data-content='<span class="flag-icon flag-icon-us"></span> English'></option>
+                                <option value="es" th:text="#{lang.es}" data-content='<span class="flag-icon flag-icon-mx"></span> Español'></option>
+                                <option value="fr" th:text="#{lang.fr}" data-content='<span class="flag-icon flag-icon-fr"></span> Frances'></option>
+                            </select>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+                            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+                            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+                            <script>hljs.initHighlightingOnLoad();</script>
+                            <script src="/js/bootstrap-select-country.min.js"></script>
+                            <script>
+                                $('[lang="fr"]').hide();
+                                $('[lang="sp"]').hide();
+
+                                let savedLang = localStorage.getItem('lang')
+
+                                if (savedLang) {
+                                    let element = document.querySelector(`option[value='${savedLang}']`);
+                                    element.selected = true
+                                    selectText(savedLang);
+                                }
+
+                                $('#locales').change(function () {
+                                    var lang = $(this).val();
+                                    localStorage.setItem('lang', lang);
+                                    selectText(lang);
+                                })
+
+                                function selectText(lang) {
+                                    switch (lang) {
+                                        case 'en':
+                                            $('[lang]').hide();
+                                            $('[lang="en"]').show();
+                                            break;
+                                        case 'fr':
+                                            $('[lang]').hide();
+                                            $('[lang="fr"]').show();
+                                            break;
+                                        case 'sp':
+                                            $('[lang]').hide();
+                                            $('[lang="sp"]').show();
+                                            break;
+                                        default:
+                                            $('[lang]').hide();
+                                            $('[lang="en"]').show();
+                                    }
+                                }
+                                var url = /*[[${url}]]*/ "";
+                                $(document).ready(function () {
+                                    $("#locales").change(function () {
+                                        var selectedOption = $('#locales').val();
+                                        if (selectedOption != '') {
+                                            window.location.replace(url + '?lang=' + selectedOption);
+                                        }
+                                    });
+                                });
+
+                            </script>
+
                         </div>
                         <!-- Grid column -->
                     </div>
                     <!-- Grid row -->
                 </div>
             </section>
-            <!-- Section: Links  -->
+            <!-- Section: Linkvs  -->
 
             <!-- Copyright -->
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
                 © 2021 Copyright:
                 <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
+
+
             <!-- Copyright -->
         </footer>
         <!-- Footer -->

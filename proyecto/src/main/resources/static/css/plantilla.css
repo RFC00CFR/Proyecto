@@ -1,7 +1,14 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 *{
-        font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 body{
     background-color: #F1F2F3;
@@ -14,12 +21,12 @@ p{
 }
 h1{
     color: #008198;
-    
+
 }
 
 /*Navbar*/
 .navbar{
-/*    display:inline;*/
+    /*    display:inline;*/
 }
 .nav-item {
     background-color: #02BFC0;
@@ -33,26 +40,54 @@ a.navbar-brand{
 }
 .container-fluid{
     background-color: #02BFC0;
-/*    display: flex;
-    flex-direction: row;
-    width: 80%;*/
-display: flex;
-justify-content: space-between;
-align-content: stretch;
+    /*    display: flex;
+        flex-direction: row;
+        width: 80%;*/
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
 }
 .navbar-expand-lg{
-/*    display: contents;*/
+    /*    display: contents;*/
     background-color: #02BFC0;
     width: 80%;
     margin:auto;
 }
 .navbar-expand-lg .navbar-collapse {
-/*    flex-basis: auto;*/
-/*    flex-flow: column;
-    flex-direction: column;
-    flex-wrap: initial;*/
+    /*    flex-basis: auto;*/
+    /*    flex-flow: column;
+        flex-direction: column;
+        flex-wrap: initial;*/
 }
 
+
 .rightnavbar{
-    display: inline;
+    display: flex;
+    flex-flow: row-reverse;
+    flex-direction: row;
+
+}
+.logout{
+    margin-left: 20px;
+}
+
+#tooltip {
+    color: #fff;
+    background: #363636;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    position: absolute;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
+}
+
+button {
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #fff;
+    background: rgb(48, 19, 129);
 }

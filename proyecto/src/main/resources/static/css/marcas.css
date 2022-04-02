@@ -1,0 +1,156 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    font-family: "Poppins", sans-serif;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+body{
+    background-color: #F1F2F3;
+}
+a{
+    color:#727272;
+}
+p{
+    color:#727272;
+}
+h1{
+    /*    display:block;*/
+    /*    margin-left:45.5%;*/
+    color:#008198;
+    font-weight: bold;
+    /*    display: table;
+        margin: 0 auto;*/
+    display: flex;
+    justify-content: center;
+}
+
+/*Navbar*/
+.navbar{
+    display:inline;
+}
+.nav-item {
+    background-color: #02BFC0;
+}
+.nav-link{
+    color:white;
+}
+a.navbar-brand{
+    color: white;
+    background-color: #02BFC0;
+}
+.container-fluid{
+    background-color: #02BFC0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.navbar-expand-lg{
+    /*    display: contents;*/
+    background-color: #02BFC0;
+    width: 100%;
+    margin:auto;
+}
+.navbar-expand-lg .navbar-collapse {
+    /*    flex-basis: auto;*/
+    flex-flow: column;
+    flex-direction: column;
+    flex-wrap: initial;
+}
+
+
+
+.lista{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.box {
+    display: flex;
+    justify-content: space-between;
+}
+.container{
+    margin-top: 80px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+.matriz{
+    /*    display: inline-block;
+        transform: translate(20%,15%);*/
+    color:black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
+    background-color: white;
+    color:black;
+
+}
+.card{
+    margin-bottom: 80px;
+    margin-right: 40px;
+    background-color: #59798D;
+    color: white;
+    margin-left: 15%;
+}
+
+.breadcrumb{
+    transform: translate(20%,30%);
+}
+.cat{
+    color :white;
+    font-weight: bold;
+
+}
+
+.btn{
+    background-color: #02BFC0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 2vh;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    padding: 5px;
+
+}
+.btn a{
+    text-decoration: none;
+    color: whitesmoke;
+}

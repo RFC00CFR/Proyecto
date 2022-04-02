@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 <title>Example</title>
 <style>
     * {
@@ -73,9 +73,9 @@
                                 <a class="nav-link" href="adminpage">Admin</a>
                             </li> 
 
-                            <!--                                    <li class="nav-item">
+                                                                <li class="nav-item">
                                                                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                                                                </li>-->
+                                                                </li>
                         </ul>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     <span th:text="#{lang.change}"></span>
                     <select id="locales">
                         <option value=""></option>
-                        <!--        <option value="en" th:text="#{lang.eng}"></option>-->
+                                <option value="en" th:text="#{lang.eng}"></option>
                         <option value="en">usa</option>
                         <option value="es" th:text="#{lang.es}"></option>
                         <option value="fr" th:text="#{lang.fr}"></option>
@@ -126,19 +126,19 @@
     </div>
     <footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted">
 
-        <!-- Footer -->
-        <!-- Section: Social media -->
+         Footer 
+         Section: Social media 
         <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
             >
 
-            <!-- Left -->
+             Left 
             <div class="me-5 d-none d-lg-block">
                 <span>Get connected with us on social networks:</span>
             </div>
-            <!--                Left 
+                            Left 
             
-                            Right -->
+                            Right 
             <div>
                 <a href="" class="me-4 text-reset">
                     <i class="fab fa-facebook-f"></i>
@@ -163,14 +163,14 @@
         </section>
         Section: Social media 
 
-        <!-- Section: Links  -->
+         Section: Links  
         <section class="">
             <div class="container text-center text-md-start mt-5">
-                <!-- Grid row -->
+                 Grid row 
                 <div class="row mt-3">
-                    <!-- Grid column -->
+                     Grid column 
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <!-- Content -->
+                         Content 
                         <h6 class="text-uppercase fw-bold mb-4">
                             <i class="fas fa-gem me-3"></i>Company name
                         </h6>
@@ -179,11 +179,11 @@
                             dolor sit amet, consectetur adipisicing elit.
                         </p>
                     </div>
-                    <!-- Grid column -->
+                     Grid column 
 
-                    <!-- Grid column -->
+                     Grid column 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
+                         Links 
                         <h6 class="text-uppercase fw-bold mb-4">
                             Products
                         </h6>
@@ -200,11 +200,11 @@
                             <a href="#!" class="text-reset">Laravel</a>
                         </p>
                     </div>
-                    <!-- Grid column -->
+                     Grid column 
 
-                    <!-- Grid column -->
+                     Grid column 
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
+                         Links 
                         <h6 class="text-uppercase fw-bold mb-4">
                             Useful links
                         </h6>
@@ -221,11 +221,11 @@
                             <a href="#!" class="text-reset">Help</a>
                         </p>
                     </div>
-                    <!-- Grid column -->
+                     Grid column 
 
-                    <!-- Grid column -->
+                     Grid column 
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <!-- Links -->
+                         Links 
                         <h6 class="text-uppercase fw-bold mb-4">
                             Contact
                         </h6>
@@ -237,21 +237,263 @@
                         <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                         <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
                     </div>
-                    <!-- Grid column -->
+                     Grid column 
                 </div>
-                <!-- Grid row -->
+                 Grid row 
             </div>
         </section>
-        <!-- Section: Links  -->
+         Section: Links  
 
-        <!-- Copyright -->
+         Copyright 
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2021 Copyright:
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
         </div>
-        <!-- Copyright -->
+         Copyright 
 
-        <!-- Footer -->
+         Footer 
 
     </footer>
+</body>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bootstrap Select Country</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no">
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css" />
+
+	<link rel="stylesheet" href="/js/bootstrap-select-country.min.css" />
+	<style>
+		body {
+				overflow-x:hidden;
+		}
+
+		.container-fluid {
+				padding:0px;
+		}
+
+		.col-lg-4 {
+			text-align: center;
+			padding: 30px;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.example {
+			border: 1px solid #e5e5e5;
+			background-color: #fcfcfc;
+			padding: 1em;
+		}
+
+		.example .html {
+			margin: 2em 0em 0em 0em;
+		}
+
+		pre {
+			padding: 0;
+		}
+
+		.main-icon {
+			font-size:16rem;
+			color: #ff7826;
+			text-shadow: 0 0 10px rgba(0,0,0,0.4);
+		}
+
+		h1, h2 {
+			color: #ff7826;
+		}
+
+		.html {
+			display: block;
+			padding: none;
+			word-break: break-all;
+			word-wrap: break-word;
+		}
+
+		.html .xml {
+			min-height: 6em;
+		}
+
+		.bs-docs-header {
+				margin-bottom: 0;
+				background: #337ab7;
+				color: #fff;
+				padding-top:80px;
+				padding-bottom:80px;
+				border-radius:0px !important;
+				margin-bottom:80px;
+		}
+
+		.bs-docs-header .aff,
+		.bs-docs-header .aff:hover,
+		.bs-docs-header .aff:active {
+				color: white!important;
+				text-decoration: underline;
+		}
+
+		.bs-docs-header .btn {
+				padding: 15px 30px;
+				font-size: 20px;
+				margin-top:30px;
+		}
+
+		.btn-outline-inverse, .btn-outline-inverse:active {
+				color: #fff!important;
+				background-color: transparent;
+				border-color: #fff;
+		}
+		.btn-outline-inverse:hover {
+				background-color:white!important;
+				color:#337ab7!important;
+		}
+
+		.row {
+				padding-left:5%;
+				padding-right:5%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="jumbotron text-center bs-docs-header" style="position:relative;">
+			<span class="main-icon glyphicon glyphicon-globe"></span>
+			<h1>bootstrap-select-country</h1>
+			<h4>based on the popular <a class="aff" href="https://silviomoreto.github.io/bootstrap-select/" target="_blank">bootstrap-select</a></h4>
+			<p>bootstrap-select-country is a jQuery plugin that utilizes Bootstrap's dropdown.js and bootstrap-select to provide country data and styling to standard select elements.</p>
+			<a href="https://github.com/mojoaxel/bootstrap-select-country/releases/latest" class="btn btn-outline-inverse btn-lg">
+				<i class="fa fa-download"></i>
+				<span>Download latest release</span>
+			</a>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Dependencies</h1>
+				<hr>
+				<ul>
+					<li><a href="http://jquery.com/download/">jQuery >= v1.8.0</a></li>
+					<li><a href="http://getbootstrap.com/docs/3.3/getting-started/#download">Bootstrap 3 CSS</a></li>
+					<li><a href="https://getbootstrap.com/docs/3.3/javascript/#dropdowns">Bootstrap 3 dropdown.js</a></li>
+					<li><a href="https://silviomoreto.github.io/bootstrap-select/">bootstrap-select</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Usage</h1>
+				<hr>
+				<p>Create your <code class="hljs-name">&lt;select&gt;</code> with the <code class="hljs-name">.selectpicker</code> and <code class="hljs-name">.countrypicker</code> class.
+					The data-api from bootstrap-select will automatically apply a basic theme to these elements.
+					Then the data-api from bootstrap-select-country will populate the select with countries.</p>
+			</div>
+			<div class="col-md-12">
+				<pre><code class="html">&lt;select class=&quot;selectpicker countrypicker&quot;&gt;&lt;/select&gt;</code></pre>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Examples</h1>
+			</div>
+			<hr>
+			<div class="col-md-12">
+				For more options have a look in the <a href="https://silviomoreto.github.io/bootstrap-select/options/">bootstrap-select docs</a>.
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Basic Example</h4>
+					<p>Simple Country-Picker</p>
+					<select class="selectpicker countrypicker"></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot;&gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Data Default</h4>
+					<p>Set default country "DE"</p>
+					<select class="selectpicker countrypicker" data-default="DE"></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; data-default=&quot;DE&quot;&gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Live Search</h4>
+					<p>Searchable with bootstrap-select.js</p>
+					<select class="selectpicker countrypicker" data-live-search="true"></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; data-live-search=&quot;true&quot; &gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>With Flag</h4>
+					<p>Show flags</p>
+					<select class="selectpicker countrypicker" data-flag="true"></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; data-flag=&quot;true&quot; &gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Multi-select</h4>
+					<p>Multi-select enabled</p>
+					<select class="selectpicker countrypicker" multiple></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; multiple&gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Multible Defaults</h4>
+					<p>Set multiple defaults</p>
+					<select class="selectpicker countrypicker" data-default="DE,JP" multiple></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; data-default=&quot;DE,JP&quot; multiple&gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Multible with Flag</h4>
+					<p>Multi-select with flags</p>
+					<select class="selectpicker countrypicker" data-flag="true" multiple></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; data-flag=&quot;true&quot; multiple&gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="example">
+					<h4>Only EU countries</h4>
+					<p>Show only a selection of countries</p>
+					<select class="selectpicker countrypicker" data-flag="true" data-countries="AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE"></select>
+					<pre class="html"><code>&lt;select class=&quot;selectpicker countrypicker&quot; data-countries=&quot;AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE&quot; &gt;&lt;/select&gt;</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer container text-center">
+		<p class="text-muted">
+			<a href="https://www.npmjs.com/package/bootstrap-select-country">bootstrap-select-country</a> is maintained by <a href="https://github.com/mojoaxel">mojoaxel</a> and is based on <a href="https://github.com/Saganic/country-picker">countrypicker</a> by <a href="https://github.com/Saganic">Saganic</a>.
+		</p>
+	</div>
+
+	<a href="https://github.com/mojoaxel/bootstrap-select-country">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+	</a>
+
+	<!--Scripts-->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="/js/bootstrap-select-country.min.js"></script>
+        
 </body>
+
+</html>
