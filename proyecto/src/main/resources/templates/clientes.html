@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Clientes</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css"/>
+        <link rel="stylesheet" href="/js/bootstrap-select-country.min.css" />
+        <link rel="stylesheet" th:href="@{/css/clientes.css}">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+ <navbar th:replace="plantilla/plantilla2::header"></navbar>
+
+        <div class="container">
+            
+        </div>
+        <div class="content">
+            <h1 th:text="${titulo}"></h1>
+
+            <div class="lista">
+                <a href="clientesN">Nuevo Cliente</a>
+                <table>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido1</th>
+                            <th scope="col">Apellido2</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Fecha de Inscripcion</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Enable</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Eliminar</th>
+                            <th scope="col">Editar</th>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="cln : ${users}">
+                        <tr>
+
+                            <td th:text="${cln.getUser_id}"></td>
+                            <td th:text="${cln.getUsername}"></td>
+                            <td th:text="${cln.getName}"></td>
+                            <td th:text="${cln.getSurname}"></td>
+                            <td th:text="${cln.getSecondsurname}"></td>
+                            <td th:text="${cln.getEmail}"></td>
+                            <td th:text="${cln.getTelephone}"></td>
+                            <td th:text="${cln.getInscription}"></td>
+                            <td th:text="${cln.getLista}"></td>
+                            <td th:text="${cln.isEnabled}"></td>
+                            <td th:text="${cln.getPassword}"></td>
+                            <td>
+                                
+                                <div class="btn">
+                                    <a th:href="@{/deleteClientes/{id}(id=${cln.getUser_id})}">Eliminar</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="btn">
+                                    <a th:href="@{/editClientes/{id}(id=${cln.getUser_id})}">Edit</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+
+    </body>
+</html>

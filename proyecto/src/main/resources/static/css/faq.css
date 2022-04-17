@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+    flex: 1 0 auto;
+}
+
+.wrapper > * {
+    padding: 10px;
+    /*    flex: 1 100%;*/
+    flex: 1 0 auto;
+}
+
+.header {
+    background: tomato;
+}
+
+.footer {
+    background: lightgreen;
+}
+
+.main {
+    text-align: left;
+/*    background: deepskyblue;*/
+    background-image: linear-gradient(to right, rgb(0, 207, 210) , rgb(0, 147, 180));
+/*    min-height: 800px;*/
+}
+
+.aside-1 {
+    background: white;
+    min-height: 1px;
+}
+
+.aside-2 {
+    background: white;
+    min-height: 1px;
+}
+
+@media all and (min-width: 600px) {
+    .aside {
+        flex: 1 0 0;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .main    {
+        flex: 3 0px;
+    }
+    .aside-1 {
+        order: 1;
+    }
+    .main    {
+        order: 2;
+    }
+    .aside-2 {
+        order: 3;
+    }
+    .footer  {
+        order: 4;
+    }
+}
+
+body {
+    padding-top: 70px;
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*    margin: auto;
+        width: 220px;
+        min-height: 400px;*/
+    /*    left      : 50%;
+        top       : 50%;*/
+    /*    position  : absolute;
+        transform : translate(-50%, -50%);*/
+}
+h1{
+    text-align:center;
+    color:white;
+    padding-bottom: 40px;
+}
+
+
+
+.cat{
+    color :white;
+    font-weight: bold;
+
+}
+
+.btn{
+    background-color: #02BFC0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 2vh;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    padding: 5px;
+
+}
+.btn a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.wrap-collabsible{
+/*    transform: translateY(150px) ;*/
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+
+
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.lbl-toggle {
+
+    display: block;
+    font-weight: bold;
+    font-size: 19px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.25s ease-out;
+    color: white;
+    background: #008198;
+
+}
+.lbl-toggle:hover {
+
+    font-weight: 900;
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+    
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100%;
+}
+
+.toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+.collapsible-content .content-inner {
+
+    background: #727272;
+    border-bottom: 1px solid #00000;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+    color:white;
+}
+
+.content-inner {
+    color:white;
+}
+.footer {
+    flex-shrink: 0;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html>
+        <head>
+            <title>Registrar una Categoria</title>
+            <link rel="stylesheet" th:href="@{productosN.css}">
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" th:href="@{/css/productos.css}">
+        </head>
+        <body>
+        <navbar th:replace="plantilla/plantilla2::header"></navbar>
+        <div class="container">
+            <form th:object = ${categoriap}
+                  th:action ="@{/saveCategorias}"
+                  method="POST"
+                  >
+                <div>
+                    <h2>Registrar Categoria</h2>
+                    <label for="idcategoria">Id</label>
+                    <input type="text" th:field="*{idcategoria}" placeholder= "idcategoria" id="nombres">
+                </div>
+
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" th:field="*{nombre}" placeholder= "Nombre" id="precios">
+                </div>
+
+                <br>
+
+                <button  class="btn btn-primary" type="submit" value="Guardar">Submit</button>
+            </form>
+        </div>
+
+
+
+
+    </body>
+    <footer th:fragment="footer" class="bg-dark text-white fixed-bottom">
+        <div>
+            <p>Copyright Tienda &copy; 2022</p>
+        </div>
+    </footer>
+</html>
+
