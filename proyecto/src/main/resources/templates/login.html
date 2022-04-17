@@ -21,20 +21,21 @@
             <article class="main">
                 <h1>Log In</h1>
                 <form class="form" th:action="@{/login}" method="post">
-
+                    <br>
                     <div class="txt_field1">
                         <label>Username</label>
                         <input type="text" name="username" placeholder="Username">
                     </div>
-
+                    <br>
                     <div class="txt_field2">
                         <label>Password&nbsp;&#8202;</label>
                         <input type="password" name="password" placeholder="Password">
                     </div> 
                     <div class="txt_field2">
-                        <label>Remember Me</label>
+                        <label class="remember">Remember Me</label>
                         <input type="checkbox" name="remember-me"> 
                     </div>
+                    <br>
                     <input class="boton" type="submit" value="Log in">
                 </form>
             </article>
