@@ -1,5 +1,7 @@
 package com.proyecto.Controller;
 
+import com.proyecto.Message.Message;
+import com.proyecto.Message.MessageRepository;
 import com.proyecto.Role.Role;
 import com.proyecto.Role.RoleRepository;
 import com.proyecto.User.UsuarioDetailsService;
@@ -10,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -27,6 +30,7 @@ public class Website {
     @Autowired
     private UserRepository userRepository;
     
+
     @Autowired
     private RoleRepository roleRepository;
 
@@ -56,8 +60,6 @@ public class Website {
     }
 //    *** Index *** Ending
 
-    
-    
 //    *** Register *** Begining
     @GetMapping("login")
     public String getLogin(Model model) {
@@ -102,10 +104,6 @@ public class Website {
     }
 
 //    *** Register*** Ending
-
-    
-    
-    
 //    *** Frequently Asked Questions *** Begining
     @GetMapping("/faq")
     public String getFaq(Model model) {
@@ -116,21 +114,12 @@ public class Website {
     }
 //    *** Frequently Asked Questions *** Ending
 
-    
-    
-    
 //    *** Contact Us *** Begining
-    @GetMapping("/contact")
-    public String getContact(Model model) {
-        model.addAttribute("url", "contact");
-        model.addAttribute("titulo", "Contacto");
-        model.addAttribute("link", "/contact");
-        return "contact";
-    }
-//    *** Contact Us *** Ending
 
     
     
+    
+//    *** Contact Us *** Ending
     
 //    *** Admin Page *** Begining
     @GetMapping("/adminpage")
@@ -142,7 +131,4 @@ public class Website {
     }
 //    *** Admin Page *** Ending
 
-    
-    
-    
 }

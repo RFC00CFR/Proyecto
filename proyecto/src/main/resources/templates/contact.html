@@ -20,7 +20,7 @@
 
             <article class="main">
                 <h1>Contact us</h1>
-                <form class="form" method="get">
+<!--                <form class="form" method="get">
                     <table class="tabla">
                         <tr>
                             <td align="left">Nombre completo:</td>
@@ -46,7 +46,46 @@
                                 </div>
                         </tr>
                     </table>
+                </form>-->
+
+
+
+                <form th:action="@{/process_message}" th:object="${message}" method="post" style="margin: auto; padding:auto;" >
+                    <table class="tabla">
+                        <tr>
+                            <td align="left">Nombre completo:</td>
+                        </tr>
+                        <tr>
+                            <input type="hidden"  th:field="*{idconsultas}"  />
+                            <td align="left">
+                                <input type="text" name="first" th:field="*{nombre}"  /></td>
+                        </tr>
+                        <tr>
+                            <td align="left">E-mail:</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <input type="email"   th:field="*{email}"/></td>
+                        </tr>
+                        <tr>
+                            <td align="left">Mensaje:</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <div class="mensaje">
+                                    <textarea id="id" name="name" rows="5" cols="20" th:field="*{mensaje}"></textarea>
+                                </div>
+                        </tr>
+                    </table>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+
+
+
+
+
+
             </article>
             <aside class="aside aside-1"></aside>
             <aside class="aside aside-2"></aside>

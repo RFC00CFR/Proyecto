@@ -56,6 +56,13 @@
                                 </form>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/messsageList}" method="get" >
+                                    <input type="submit" value="Lista de Consultas" />
+                                </form>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </article>

@@ -68,17 +68,21 @@ public class UserController {
     @PostMapping("/saveUser")
     public String guardarProducto(@ModelAttribute User user, @RequestParam("oldPassword") String oldPassword, @RequestParam("contrasena") String contrasena) {
 
-        if (BCrypt.checkpw(oldPassword, contrasena) && !user.getPassword().isEmpty()) {
-            user.setPassword(passwordEncoder().encode(user.getPassword()));
-            userRepo.save(user);
-            return "redirect:/account";
-        } else if (BCrypt.checkpw(oldPassword, contrasena) && user.getPassword().isEmpty()) {
-            user.setPassword(contrasena);
-            userRepo.save(user);
-            return "redirect:/account";
-        } else {
+        if(userRepo.existByUsername(user.getSurname()) ){
+            if (BCrypt.checkpw(oldPassword, contrasena) && !user.getPassword().isEmpty()) {
+                user.setPassword(passwordEncoder().encode(user.getPassword()));
+                userRepo.save(user);
+                return "redirect:/account";
+            } else if (BCrypt.checkpw(oldPassword, contrasena) && user.getPassword().isEmpty()) {
+                user.setPassword(contrasena);
+                userRepo.save(user);
+                return "redirect:/account";
+            }
+        }
+        else {
             return "redirect:/account";
         }
+        return null;
     }
 
     @PostMapping("/saveEditedUser")
