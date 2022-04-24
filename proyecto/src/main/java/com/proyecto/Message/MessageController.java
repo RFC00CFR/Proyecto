@@ -23,28 +23,28 @@ public class MessageController {
         return "contact";
     }
 
-    @PostMapping("/process_message")
-    public String processMessage(Message message) {
-        messageRepository.save(message);
-        return "contact";
-    }
+//    @PostMapping("/process_message")
+//    public String processMessage(Message message) {
+//        messageRepository.save(message);
+//        return "contact";
+//    }
 
     @GetMapping("/messsageList")
-    public String messages(Model model) {
+    public String mess(Model model) {
         List<Message> listMessages = messageRepository.findAll();
         model.addAttribute("listMessages", listMessages);
         return "consultas";
     }
     
     
-        @GetMapping("/deleteUsers/{usuario}")
-    public String eliminarProducto(@PathVariable("message") String message) {
-        
-        Message mess = messageRepository.findByName(message);
-        messageRepository.delete(mess);
-
-        return "redirect:/users";
-    }
+//        @GetMapping("/deleteUsers/{usuario}")
+//    public String eliminarProducto(@PathVariable("message") String message) {
+//        
+//        Message mess = messageRepository.findByName(message);
+//        messageRepository.delete(mess);
+//
+//        return "redirect:/users";
+//    }
     
     
 }

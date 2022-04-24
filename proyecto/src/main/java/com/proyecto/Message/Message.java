@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "messages")
+@Table(name = "Messages")
 public class Message implements Serializable {
 
     @Id
