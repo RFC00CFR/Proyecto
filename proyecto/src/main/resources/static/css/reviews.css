@@ -6,6 +6,7 @@ html, body {
     height: 100%;
 }
 body {
+/*    font-size:large ;*/
     display: flex;
     flex-direction: column;
 }
@@ -73,7 +74,7 @@ body {
 }
 
 body {
-    padding-top: 70px;
+/*    padding-top: 70px;*/
 
 }
 /*.form{
@@ -136,4 +137,7 @@ h1{
 .btn{
     background-color: white;
     color: black;
+}
+.star{
+    font-size:20px;
 }

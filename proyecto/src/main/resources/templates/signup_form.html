@@ -13,6 +13,7 @@
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
         <header th:replace="plantillas/template::header"></header>
 
         <div class="wrapper">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
-                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password">
+                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password" onsubmit="required()">
                     </div>
 
                     <div class="form-group">
@@ -60,10 +61,13 @@
                         <input type="text" th:field="*{telephone}" class="form-control" id="telephone" aria-describedby="telephone" placeholder="Enter telephone">
 
                     </div>
-<!--                    <div class="form-group">
-                        <label for="Inscription">Inscription</label>
-                        <input type="date" th:field="*{inscription}" class="form-control" id="inscription" aria-describedby="inscription" placeholder="Enter inscription">
-                    </div>-->
+                    <!--                    <div class="form-group">
+                                            <label for="Inscription">Inscription</label>
+                                            <input type="date" th:field="*{inscription}" class="form-control" id="inscription" aria-describedby="inscription" placeholder="Enter inscription">
+                                        </div>-->
+
+
+
                     <br>
                     
                     <button type="submit" class="btn btn-light">Submit</button>
@@ -78,5 +82,21 @@
         <footer class="footer">
             <footer th:replace="plantillas/template::footer"></footer> 
         </footer>
+        <script>
+            function required()
+            {
+                var empt = document.forms["form1"]["text1"].value;
+                if (empt == "")
+                {
+                    alert("Please input a Value");
+                    return false;
+                } else
+                {
+                    alert('Code has accepted : you can try another');
+                    return true;
+                }
+            }
+
+        </script>
     </body>
 </html>

@@ -19,12 +19,6 @@ public class Image {
 
         try ( InputStream inputStream = archivoMulti.getInputStream()) {
             Path filePath = uploadPath.resolve(nombre);
-            System.out.println(filePath);
-            System.out.println(filePath);
-            System.out.println(filePath);
-            System.out.println(filePath);
-            System.out.println(filePath);
-            System.out.println(filePath);
 
 
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
