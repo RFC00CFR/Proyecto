@@ -16,6 +16,7 @@ body {
     text-align: center;
     flex: 1 0 auto;
     background-image: linear-gradient(to right, rgb(0, 207, 210) , rgb(0, 147, 180));
+    
 }
 
 .wrapper > * {
@@ -24,6 +25,20 @@ body {
     flex: 1 0 auto;
 }
 
+table{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding-top: 20px;
+}
+
+table thead tr th{
+    padding-top: 20px;
+    font-weight: bolder;
+}
+
+.imagesProduct{
+    margin: 20px;
+}
 .header {
     background: tomato;
 }

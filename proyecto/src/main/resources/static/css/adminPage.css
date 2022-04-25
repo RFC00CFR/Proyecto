@@ -16,6 +16,7 @@ body {
     font-weight: bold;
     text-align: center;
     flex: 1 0 auto;
+    
 }
 
 .wrapper > * {
@@ -23,6 +24,8 @@ body {
     /*    flex: 1 100%;*/
     flex: 1 0 auto;
 }
+
+
 
 .header {
     background: tomato;
@@ -36,7 +39,18 @@ body {
     text-align: left;
 /*    background: deepskyblue;*/
     background-image: linear-gradient(to right, rgb(0, 207, 210) , rgb(0, 147, 180));
+    padding-top: 50px;
 }
+table tr td form input{
+    margin-top: 20px;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    border-bottom-style: none;
+    padding: 10px 30px;
+}
+
+
 
 .aside-1 {
     background: white;

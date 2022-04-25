@@ -20,7 +20,9 @@
         <div class="wrapper">
 
             <article class="main">
+                <br>
                 <h1>List of Product</h1>
+                <br>
                 <div th:if="${#authorization.expression('isAuthenticated()')}" >
                     <table>
                         <thead class="thead-dark">
@@ -39,7 +41,7 @@
                         <tbody>
                         <th:block th:each="prod : ${productos}">
                             <tr>
-                                <td><img th:src="@{${prod.getUrl}}" style="width:200px; height: auto;"></td>
+                                <td><img class="imagesProduct" th:src="@{${prod.getUrl}}" style="width:150px; height: auto;"></td>
                                 <td th:text="${prod.getId}"></td>
                                 <td th:text="${prod.getNombre}"></td>
                                 <td th:text="${prod.getMarca}"></td>
@@ -65,13 +67,13 @@
                         </tbody>
                     </table>
                 </div>
-
+                <br><br><br>
             </article>
 
             <aside class="aside aside-1"></aside>
             <aside class="aside aside-2"></aside>
 
-
+            
         </div>
 
 
