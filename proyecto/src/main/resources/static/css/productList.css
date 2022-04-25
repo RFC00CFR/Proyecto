@@ -16,7 +16,6 @@ body {
     text-align: center;
     flex: 1 0 auto;
     background-image: linear-gradient(to right, rgb(0, 207, 210) , rgb(0, 147, 180));
-    
 }
 
 .wrapper > * {

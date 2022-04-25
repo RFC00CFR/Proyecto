@@ -20,7 +20,9 @@
             <article class="main">
 
                 <div>
+                    <br>
                     <h1>Create Product</h1>
+                    <br>
                 </div>
 
                 <form th:object = ${productos}
@@ -29,11 +31,11 @@
                       enctype="multipart/form-data"
                       >
 
-
                     <input type="hidden" th:field="*{id}">
 
                     <div>
                         <h2>Registrar Productos</h2>
+                        <br>
                         <label for="nombre">Nombre</label>
                         <input type="text" th:field="*{nombre}" placeholder= "Nombre" id="nombre">
                     </div>
@@ -67,10 +69,9 @@
                     </div>
                     <br>
 
-                    <button  class="btn btn-primary" type="submit" value="Guardar">Submit</button>
+                    <button  class="btn btn-light" type="submit" value="Guardar">Submit</button>
+                    <br>
                 </form>
-
-
 
             </article>
             <aside class="aside aside-1"></aside>
