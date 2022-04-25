@@ -28,7 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
     }
 
     @Bean
@@ -49,9 +50,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/signup_form", "/register", "/process_register", "/register_success", "/index", "/login", "/home", "/faq", "/contact", ".../static/img/**", "../static/css/**", "/static/**", "/css/**", "/js/**", "/img/**", "/fonts/**", "/webjars/**").permitAll()
+                .antMatchers("/", "/signup_form", "/register", "/process_register", "/register_success", "/index", "/login", "/home", "/faq", "/contact", "/process_message", ".../static/img/**", "../static/css/**", "/static/**", "/css/**", "/js/**", "/img/**", "/fonts/**", "/webjars/**").permitAll()
                 .antMatchers("/account").hasAnyAuthority("LEVEL1", "LEVEL2", "LEVEL3", "EMPLOYEE", "ADMIN")
-                .antMatchers("/users").hasAuthority("ADMIN")
+                .antMatchers("/users","/adminpage","crearProduct","/saveProducto","/productList").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -61,7 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
                 .permitAll()
                 .and()
-                .rememberMe().tokenRepository(persistentTokenRepository());
+                .rememberMe().tokenRepository(persistentTokenRepository())
+                .and()
+                .csrf().disable();
     }
 
     @Autowired
@@ -77,6 +80,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         tokenRepo.setDataSource(dataSource);
         return tokenRepo;
     }
-
 
 }

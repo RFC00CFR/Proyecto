@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `proyecto_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `proyecto_db`;
+CREATE DATABASE  IF NOT EXISTS `proyecto` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `proyecto`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: localhost    Database: proyecto_db
+-- Host: localhost    Database: proyecto
 -- ------------------------------------------------------
 -- Server version	8.0.28
 
@@ -18,642 +18,252 @@ USE `proyecto_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `empleado`
+-- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `empleado`;
+DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado` (
-  `IDENTIFICACION` int NOT NULL AUTO_INCREMENT,
-  `NOMBRE` varchar(45) NOT NULL,
-  `APELLIDO_PATERNO` varchar(45) NOT NULL,
-  `APELLIDO_MATERNO` varchar(45) NOT NULL,
-  `FECHA_NACIMIENTO` varchar(45) NOT NULL,
-  `PUESTO` varchar(45) NOT NULL,
-  `SALARIO_EMPLEADO` varchar(45) NOT NULL,
-  `OFICINA_ASIGNADA` varchar(45) NOT NULL,
-  `UBICACION_OFICINA` varchar(45) NOT NULL,
-  `DIRECCION_EMPLEADO` varchar(45) NOT NULL,
-  `TELEFONO_1` varchar(45) NOT NULL,
-  `TELEFONO_2` varchar(45) NOT NULL,
-  `CORREOS_ELECTRONICOS` varchar(45) NOT NULL,
-  `ESTADO` tinyint NOT NULL,
-  `FECHA_REGISTRO` date NOT NULL,
-  `NOMBRE_USUARIO_REGISTRO` varchar(45) NOT NULL,
-  PRIMARY KEY (`IDENTIFICACION`),
-  UNIQUE KEY `IDENTIFICACION_UNIQUE` (`IDENTIFICACION`)
+CREATE TABLE `cart` (
+  `idcart` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `id` int DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  PRIMARY KEY (`idcart`),
+  KEY `id_idx` (`id`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `productos` (`id`),
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES (1,6,1,4),(3,6,2,4),(4,6,3,4);
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `facturas`
+--
+
+DROP TABLE IF EXISTS `facturas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `facturas` (
+  `idfacturas` int NOT NULL,
+  PRIMARY KEY (`idfacturas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `empleado`
+-- Dumping data for table `facturas`
 --
 
-LOCK TABLES `empleado` WRITE;
-/*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
+LOCK TABLES `facturas` WRITE;
+/*!40000 ALTER TABLE `facturas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `facturas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `empleado_cantones`
+-- Table structure for table `messages`
 --
 
-DROP TABLE IF EXISTS `empleado_cantones`;
+DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_cantones` (
-  `id_cantones` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `messages` (
+  `idconsultas` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_cantones`),
-  UNIQUE KEY `id_cantones_UNIQUE` (`id_cantones`)
+  `email` varchar(45) NOT NULL,
+  `mensaje` varchar(500) NOT NULL,
+  PRIMARY KEY (`idconsultas`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (8,'fsdfsdfsdfsdfsdf','sdfsdfsdsdf@sdfsdf','sdfsdfsdfsdfsdfsdf'),(9,'sdfsdf','sdfsdf@dsfsdf','sdfsdfsdfsdf'),(10,'dgsdgsdf','dsfsdfsdf@dsfsdfsdfsdf','sdfsdfsdfsdf'),(11,'ssdf','dfsdfd@sdfsdf','sdfsdfsdfsdf'),(12,'ddsfsd','sdfsdfsd@sdfsdfdsf','sdfsdfdsfsdf'),(13,'sdfsdf','sdfsdfds@wsedfsdsd','sdfsdfsdfsdf'),(14,'dfgfg','fgdfgdf@sdfsdfsd','dsfsdfdsfsdfsdf'),(15,'fgdfgsdfg','sdfgsdfsdf@fsdfsd','sdfsdfsdfsd'),(16,'sdsdfsdf','sdfsdf@asdfasdf','sdaasdasd'),(17,'dsfsdf','sdsdfsdf@sdfsdfsdf','sdfsdfsdf'),(18,'sdfsdfs','dfsdfsd@sdfsdfsdf','sdfdsf'),(19,'sdfsdf','sdfsdf@gsdfsdf','dgsfdsf'),(20,'sdfsdfsdf','sdfsdf@sdfsdf','sdfsdf'),(21,'dfgdfg','dfgdf@asdfsdf','fvfd'),(22,'sdfsdf','sdfsdf@asdsddfasd','sdfsdf'),(23,'dfgdfg','dfgfd@sdsdfsdf','fgdfg'),(24,'dfgdfg','dfgdfg@fgdfgdf','fgdfg'),(25,'sdfsdf','sdfsd@asdfsdf','dsfsdf'),(26,'dfsdf','sdfdsf@sdfsdf','sdfdsfsdfdsf'),(27,'zxzxczxc','asdasd@asdasd','asdasdasd');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `persistent_logins`
+--
+
+DROP TABLE IF EXISTS `persistent_logins`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `persistent_logins` (
+  `username` varchar(64) NOT NULL,
+  `series` varchar(64) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `last_used` timestamp NOT NULL,
+  PRIMARY KEY (`series`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `empleado_cantones`
+-- Dumping data for table `persistent_logins`
 --
 
-LOCK TABLES `empleado_cantones` WRITE;
-/*!40000 ALTER TABLE `empleado_cantones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_cantones` ENABLE KEYS */;
+LOCK TABLES `persistent_logins` WRITE;
+/*!40000 ALTER TABLE `persistent_logins` DISABLE KEYS */;
+INSERT INTO `persistent_logins` VALUES ('joseph','4blnIgVDWNMXQ5Wyx5gN+w==','Nf3CpKuchLIKjaxEpfPjhw==','2022-04-25 02:17:57');
+/*!40000 ALTER TABLE `persistent_logins` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `empleado_correos`
+-- Table structure for table `productos`
 --
 
-DROP TABLE IF EXISTS `empleado_correos`;
+DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_correos` (
-  `id_correos` int NOT NULL AUTO_INCREMENT,
-  `correo` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_correos`),
-  UNIQUE KEY `id_correos_UNIQUE` (`id_correos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_correos`
---
-
-LOCK TABLES `empleado_correos` WRITE;
-/*!40000 ALTER TABLE `empleado_correos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_correos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_direcciones`
---
-
-DROP TABLE IF EXISTS `empleado_direcciones`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_direcciones` (
-  `id_direcciones` int NOT NULL AUTO_INCREMENT,
-  `provincia` varchar(45) NOT NULL,
-  `canton` varchar(45) NOT NULL,
-  `distrito` varchar(45) NOT NULL,
-  `senas` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_direcciones`),
-  UNIQUE KEY `id_direcciones_UNIQUE` (`id_direcciones`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_direcciones`
---
-
-LOCK TABLES `empleado_direcciones` WRITE;
-/*!40000 ALTER TABLE `empleado_direcciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_direcciones` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_distritos`
---
-
-DROP TABLE IF EXISTS `empleado_distritos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_distritos` (
-  `id_distritos` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `productos` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_distritos`),
-  UNIQUE KEY `id_distritos_UNIQUE` (`id_distritos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_distritos`
---
-
-LOCK TABLES `empleado_distritos` WRITE;
-/*!40000 ALTER TABLE `empleado_distritos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_distritos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_oficinas`
---
-
-DROP TABLE IF EXISTS `empleado_oficinas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_oficinas` (
-  `id_oficina` int NOT NULL AUTO_INCREMENT,
-  `ubicacion` varchar(45) NOT NULL,
-  `telefono` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_oficina`),
-  UNIQUE KEY `telefono_UNIQUE` (`telefono`),
-  UNIQUE KEY `id_oficina_UNIQUE` (`id_oficina`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_oficinas`
---
-
-LOCK TABLES `empleado_oficinas` WRITE;
-/*!40000 ALTER TABLE `empleado_oficinas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_oficinas` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_provincias`
---
-
-DROP TABLE IF EXISTS `empleado_provincias`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_provincias` (
-  `id_provincias` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_provincias`),
-  UNIQUE KEY `id_provincias_UNIQUE` (`id_provincias`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_provincias`
---
-
-LOCK TABLES `empleado_provincias` WRITE;
-/*!40000 ALTER TABLE `empleado_provincias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_provincias` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_puestos`
---
-
-DROP TABLE IF EXISTS `empleado_puestos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_puestos` (
-  `id_puestos` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `salario` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_puestos`),
-  UNIQUE KEY `id_puestos_UNIQUE` (`id_puestos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_puestos`
---
-
-LOCK TABLES `empleado_puestos` WRITE;
-/*!40000 ALTER TABLE `empleado_puestos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_puestos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_registros`
---
-
-DROP TABLE IF EXISTS `empleado_registros`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_registros` (
-  `id_registros` int NOT NULL AUTO_INCREMENT,
-  `fecha` date NOT NULL,
-  `nombre_de_usuario` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_registros`),
-  UNIQUE KEY `id_registros_UNIQUE` (`id_registros`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_registros`
---
-
-LOCK TABLES `empleado_registros` WRITE;
-/*!40000 ALTER TABLE `empleado_registros` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_registros` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `empleado_telefonos`
---
-
-DROP TABLE IF EXISTS `empleado_telefonos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado_telefonos` (
-  `id_telefonos` int NOT NULL AUTO_INCREMENT,
-  `telefono` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_telefonos`),
-  UNIQUE KEY `telefono_UNIQUE` (`telefono`),
-  UNIQUE KEY `id_telefonos_UNIQUE` (`id_telefonos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado_telefonos`
---
-
-LOCK TABLES `empleado_telefonos` WRITE;
-/*!40000 ALTER TABLE `empleado_telefonos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado_telefonos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `facturacion_paqueteria`
---
-
-DROP TABLE IF EXISTS `facturacion_paqueteria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `facturacion_paqueteria` (
-  `NUM_FACTURA` int NOT NULL AUTO_INCREMENT,
-  `NOMBRE_CLIENTE` varchar(45) NOT NULL,
-  `FECHA_FACTURA` varchar(45) NOT NULL,
-  `NUMERO_PAQUETE` varchar(45) NOT NULL,
-  `COSTO_IMPUESTOS` varchar(45) NOT NULL,
-  `COSTO_FLETE` varchar(45) NOT NULL,
-  `COSTO_IVA` varchar(45) NOT NULL,
-  `TOTAL_POR_ENVIO` varchar(45) NOT NULL,
-  `TOTAL_ANTES_IVA` varchar(45) NOT NULL,
-  `TOTAL_FACTURA` varchar(45) NOT NULL,
-  `DIRECCION_CLIENTE` varchar(45) NOT NULL,
-  `TELEFONO_CLIENTE_1` varchar(45) NOT NULL,
-  `TELEFONO_CLIENTE_2` varchar(45) NOT NULL,
-  `EMAIL_CLIENTE_FE` varchar(45) NOT NULL,
-  `EMAIL_CLIENTE` varchar(45) NOT NULL,
-  `FECHA_REGISTRO` varchar(45) NOT NULL,
-  `NOMBRE_USUARIO_REGISTRO` varchar(45) NOT NULL,
-  `ESTADO` varchar(45) NOT NULL,
-  PRIMARY KEY (`NUM_FACTURA`),
-  UNIQUE KEY `NUM_FACTURA_UNIQUE` (`NUM_FACTURA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `facturacion_paqueteria`
---
-
-LOCK TABLES `facturacion_paqueteria` WRITE;
-/*!40000 ALTER TABLE `facturacion_paqueteria` DISABLE KEYS */;
-/*!40000 ALTER TABLE `facturacion_paqueteria` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `inventario_marca`
---
-
-DROP TABLE IF EXISTS `inventario_marca`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventario_marca` (
-  `id_marca` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_marca`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `inventario_marca`
---
-
-LOCK TABLES `inventario_marca` WRITE;
-/*!40000 ALTER TABLE `inventario_marca` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario_marca` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `inventario_revisiones`
---
-
-DROP TABLE IF EXISTS `inventario_revisiones`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventario_revisiones` (
-  `id_revisiones` int NOT NULL AUTO_INCREMENT,
-  `fecha` date NOT NULL,
-  `descripcion` varchar(255) NOT NULL,
-  `tipo` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_revisiones`),
-  UNIQUE KEY `id_revisiones_UNIQUE` (`id_revisiones`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `inventario_revisiones`
---
-
-LOCK TABLES `inventario_revisiones` WRITE;
-/*!40000 ALTER TABLE `inventario_revisiones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario_revisiones` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `inventario_tipo_mantenimiento`
---
-
-DROP TABLE IF EXISTS `inventario_tipo_mantenimiento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventario_tipo_mantenimiento` (
-  `id_tipo_mantenimiento` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_tipo_mantenimiento`),
-  UNIQUE KEY `id_tipo_mantenimiento_UNIQUE` (`id_tipo_mantenimiento`),
+  `marca` varchar(45) NOT NULL,
+  `precio` int NOT NULL,
+  `cantidad` int NOT NULL,
+  `descripcion` longtext NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `categoria` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inventario_tipo_mantenimiento`
+-- Dumping data for table `productos`
 --
 
-LOCK TABLES `inventario_tipo_mantenimiento` WRITE;
-/*!40000 ALTER TABLE `inventario_tipo_mantenimiento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario_tipo_mantenimiento` ENABLE KEYS */;
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'Cloudfoam Pure 2.0','Adidas',45000,16,'TENIS ADIDAS','/img/adidas.png','Tenis'),(2,'Club C 85 Vintage Shoes','Reebok',55000,30,'TENIS REEBOK','/img/reebok.png','Tenis'),(3,'Galaxy S21','Samsung',450000,10,'CELULAR SAMSUNG','/img/galaxy.jpg','Telefono');
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `inventario_tipo_vehiculo`
+-- Table structure for table `reviews`
 --
 
-DROP TABLE IF EXISTS `inventario_tipo_vehiculo`;
+DROP TABLE IF EXISTS `reviews`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventario_tipo_vehiculo` (
-  `id_tipo_vehiculo` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_tipo_vehiculo`),
-  UNIQUE KEY `id_tipo_vehiculo_UNIQUE` (`id_tipo_vehiculo`),
-  UNIQUE KEY `tipo_UNIQUE` (`nombre`)
+CREATE TABLE `reviews` (
+  `idreviews` int NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `product` varchar(45) NOT NULL,
+  `message` varchar(45) NOT NULL,
+  PRIMARY KEY (`idreviews`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inventario_tipo_vehiculo`
+-- Dumping data for table `reviews`
 --
 
-LOCK TABLES `inventario_tipo_vehiculo` WRITE;
-/*!40000 ALTER TABLE `inventario_tipo_vehiculo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario_tipo_vehiculo` ENABLE KEYS */;
+LOCK TABLES `reviews` WRITE;
+/*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `inventario_vehiculos`
+-- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `inventario_vehiculos`;
+DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventario_vehiculos` (
-  `NUM_INTERNO` int NOT NULL,
-  ` NUM_PLACA` varchar(45) DEFAULT NULL,
-  `MARCA` varchar(45) DEFAULT NULL,
-  `MODELO` varchar(45) DEFAULT NULL,
-  `STOCK` varchar(45) DEFAULT NULL,
-  `TIPO_VEHICULO` varchar(45) DEFAULT NULL,
-  `ESTADO_VEHICULO` varchar(45) DEFAULT NULL,
-  `FECHA_REGISTRO` varchar(45) DEFAULT NULL,
-  `NOMBRE_USUARIO_REGISTRO` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`NUM_INTERNO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `roles` (
+  `role_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inventario_vehiculos`
+-- Dumping data for table `roles`
 --
 
-LOCK TABLES `inventario_vehiculos` WRITE;
-/*!40000 ALTER TABLE `inventario_vehiculos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario_vehiculos` ENABLE KEYS */;
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'LEVEL1'),(2,'LEVEL2'),(3,'LEVEL3'),(4,'EMPLOYEE'),(5,'ADMIN');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `invetario_modelo`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `invetario_modelo`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `invetario_modelo` (
-  `id_modelo` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_modelo`),
-  UNIQUE KEY `id_modelo_UNIQUE` (`id_modelo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `enabled` tinyint NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `inscription` date NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `secondsurname` varchar(25) NOT NULL,
+  `surname` varchar(25) NOT NULL,
+  `telephone` varchar(25) NOT NULL,
+  `id_cart` int NOT NULL,
+  `cantidad` int NOT NULL,
+  `id` int NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_id_UNIQUE` (`user_id`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `invetario_modelo`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `invetario_modelo` WRITE;
-/*!40000 ALTER TABLE `invetario_modelo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `invetario_modelo` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (5,'admin','$2a$10$.doI00CwcFL9nmPJqL7kK.GsnwdWPTGgIr6GHl10aizi/9/gGAcJa',1,'test@gmail.com','2022-10-10','test','test','test','12345678',0,0,0),(6,'joseph','$2a$10$PtHcV2Y.Z3xImfTxjV/b6uN8.hVedc1cavf21..iLfmWECY85bXDe',1,'testing@gmail.com','2022-10-10','Joseph','Silesky','Mena','12345678',0,0,0),(7,'roberto','$2a$10$i.lD7Z9CweG/AoRcJyhfk.OD0dXCACTQxPxsa5JA0jh/0v1.ynLoC',1,'test@gmail.com','2022-10-10','test','test','test','12345678',0,0,0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `paqueteria`
+-- Table structure for table `users_roles`
 --
 
-DROP TABLE IF EXISTS `paqueteria`;
+DROP TABLE IF EXISTS `users_roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria` (
-  `NUM_PAQUETE` int NOT NULL AUTO_INCREMENT,
-  `DESCRIPCION_PAQUETE` varchar(45) DEFAULT NULL,
-  `OFICINA_UBICACION` varchar(45) DEFAULT NULL,
-  `EMPLEADO_PROCESO` varchar(45) DEFAULT NULL,
-  `NOMBRE_CLIENTE` varchar(45) DEFAULT NULL,
-  `IDENTIFICACION_CLIENTE` varchar(45) DEFAULT NULL,
-  `TIPO_ENVIO` varchar(45) DEFAULT NULL,
-  `TELEFONO_CLIENTE` varchar(45) DEFAULT NULL,
-  `DIRECCIONES_CLIENTE` varchar(45) DEFAULT NULL,
-  `CORREOS_CLIENTE` varchar(45) DEFAULT NULL,
-  `TIPO_CLIENTE` varchar(45) DEFAULT NULL,
-  `ESTADO_CLIENTE` varchar(45) DEFAULT NULL,
-  `ESTADO_PAQUETE` varchar(45) DEFAULT NULL,
-  `FECHA_REGISTRO` varchar(45) DEFAULT NULL,
-  `NOMBRE_USUARIO_REGISTRO` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`NUM_PAQUETE`)
+CREATE TABLE `users_roles` (
+  `user_id` int NOT NULL,
+  `role_id` int NOT NULL,
+  KEY `user_fk_idx` (`user_id`),
+  KEY `role_fk_idx` (`role_id`),
+  CONSTRAINT `role_fk` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `paqueteria`
+-- Dumping data for table `users_roles`
 --
 
-LOCK TABLES `paqueteria` WRITE;
-/*!40000 ALTER TABLE `paqueteria` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `paqueteria_correos_clientes`
---
-
-DROP TABLE IF EXISTS `paqueteria_correos_clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria_correos_clientes` (
-  `id_correos_cliente` int NOT NULL AUTO_INCREMENT,
-  `correo` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_correos_cliente`),
-  UNIQUE KEY `id_correos_cliente_UNIQUE` (`id_correos_cliente`),
-  UNIQUE KEY `correo_UNIQUE` (`correo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `paqueteria_correos_clientes`
---
-
-LOCK TABLES `paqueteria_correos_clientes` WRITE;
-/*!40000 ALTER TABLE `paqueteria_correos_clientes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria_correos_clientes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `paqueteria_direcciones_clientes`
---
-
-DROP TABLE IF EXISTS `paqueteria_direcciones_clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria_direcciones_clientes` (
-  `id_direcciones_clientes` int NOT NULL AUTO_INCREMENT,
-  `direccion` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_direcciones_clientes`),
-  UNIQUE KEY `id_direcciones_clientes_UNIQUE` (`id_direcciones_clientes`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `paqueteria_direcciones_clientes`
---
-
-LOCK TABLES `paqueteria_direcciones_clientes` WRITE;
-/*!40000 ALTER TABLE `paqueteria_direcciones_clientes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria_direcciones_clientes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `paqueteria_envio`
---
-
-DROP TABLE IF EXISTS `paqueteria_envio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria_envio` (
-  `id_envio` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_envio`),
-  UNIQUE KEY `id_envio_UNIQUE` (`id_envio`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `paqueteria_envio`
---
-
-LOCK TABLES `paqueteria_envio` WRITE;
-/*!40000 ALTER TABLE `paqueteria_envio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria_envio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `paqueteria_estados_paquetes`
---
-
-DROP TABLE IF EXISTS `paqueteria_estados_paquetes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria_estados_paquetes` (
-  `id_estados_paquetes` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_estados_paquetes`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`),
-  UNIQUE KEY `id_estados_paquetes_UNIQUE` (`id_estados_paquetes`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `paqueteria_estados_paquetes`
---
-
-LOCK TABLES `paqueteria_estados_paquetes` WRITE;
-/*!40000 ALTER TABLE `paqueteria_estados_paquetes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria_estados_paquetes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `paqueteria_telefonos_clientes`
---
-
-DROP TABLE IF EXISTS `paqueteria_telefonos_clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria_telefonos_clientes` (
-  `id_telefonos_clientes` int NOT NULL AUTO_INCREMENT,
-  `telefono` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_telefonos_clientes`),
-  UNIQUE KEY `id_telefonos_clientes_UNIQUE` (`id_telefonos_clientes`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `paqueteria_telefonos_clientes`
---
-
-LOCK TABLES `paqueteria_telefonos_clientes` WRITE;
-/*!40000 ALTER TABLE `paqueteria_telefonos_clientes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria_telefonos_clientes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `paqueteria_tipos_clientes`
---
-
-DROP TABLE IF EXISTS `paqueteria_tipos_clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `paqueteria_tipos_clientes` (
-  `id_tipos_clientes` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_tipos_clientes`),
-  UNIQUE KEY `id_tipos_clientes_UNIQUE` (`id_tipos_clientes`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `paqueteria_tipos_clientes`
---
-
-LOCK TABLES `paqueteria_tipos_clientes` WRITE;
-/*!40000 ALTER TABLE `paqueteria_tipos_clientes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `paqueteria_tipos_clientes` ENABLE KEYS */;
+LOCK TABLES `users_roles` WRITE;
+/*!40000 ALTER TABLE `users_roles` DISABLE KEYS */;
+INSERT INTO `users_roles` VALUES (5,4),(7,5),(6,5);
+/*!40000 ALTER TABLE `users_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -665,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-21 21:39:14
+-- Dump completed on 2022-04-24 20:35:55

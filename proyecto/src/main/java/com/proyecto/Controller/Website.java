@@ -1,7 +1,5 @@
 package com.proyecto.Controller;
 
-import com.proyecto.Message.Message;
-import com.proyecto.Message.MessageRepository;
 import com.proyecto.Role.Role;
 import com.proyecto.Role.RoleRepository;
 import com.proyecto.User.UsuarioDetailsService;
@@ -12,7 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;

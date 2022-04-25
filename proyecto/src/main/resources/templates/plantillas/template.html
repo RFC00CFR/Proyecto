@@ -24,10 +24,10 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarText">
+                    <div class="collapse navbar-collapse " id="navbarText">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                            <li class="nav-item">
+                            <li class="nav-item ">
                                 <a class="nav-link" href="/index">Home</a>
                             </li>
                             <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN','EMPLOYEE','LEVEL1','LEVEL2','LEVEL3')">
@@ -43,9 +43,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact Us</a>
                             </li>
-                            <!--                            <li class="nav-item" sec:authorize="isAuthenticated()">
-                                                            <a class="nav-link" th:href="account">Account</a>
-                                                        </li>-->
+
                             <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')">
                                 <a class="nav-link" href="/adminpage">Admin</a>
 
@@ -54,6 +52,15 @@
                             <li class="nav-item" sec:authorize="!isAuthenticated()">
                                 <a class="nav-link" href="/register">Register</a>
                             </li>
+                            <li class="nav-item" sec:authorize="isAuthenticated()" >
+                                <a class="nav-link " th:href="cart" >
+                                    <i class="bi bi-cart-fill align-middle" ></i>
+                                    <span  class="align-middle">Cart</span>
+                                </a>
+                            </li>
+
+
+
 
                         </ul>
 
@@ -64,6 +71,7 @@
                             </a>
 
                         </span>
+
 
                         <form sec:authorize="!isAuthenticated()" th:action="@{/login}">
                             <button  type="submit" class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark">Login</button>

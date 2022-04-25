@@ -17,65 +17,65 @@
         <meta charset="UTF-8">
     </head>
     <body>
- <navbar th:replace="plantilla/plantilla2::header"></navbar>
+    <navbar th:replace="plantilla/plantilla2::header"></navbar>
 
-        <div class="container">
-            
-        </div>
-        <div class="content">
-            <h1 th:text="${titulo}"></h1>
+    <div class="container">
 
-            <div class="lista">
-                <a href="clientesN">Nuevo Cliente</a>
-                <table>
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido1</th>
-                            <th scope="col">Apellido2</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Fecha de Inscripcion</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Enable</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Eliminar</th>
-                            <th scope="col">Editar</th>
-                    </thead>
-                    <tbody>
-                    <th:block th:each="cln : ${users}">
-                        <tr>
+    </div>
+    <div class="content">
+        <h1 th:text="${titulo}"></h1>
 
-                            <td th:text="${cln.getUser_id}"></td>
-                            <td th:text="${cln.getUsername}"></td>
-                            <td th:text="${cln.getName}"></td>
-                            <td th:text="${cln.getSurname}"></td>
-                            <td th:text="${cln.getSecondsurname}"></td>
-                            <td th:text="${cln.getEmail}"></td>
-                            <td th:text="${cln.getTelephone}"></td>
-                            <td th:text="${cln.getInscription}"></td>
-                            <td th:text="${cln.getLista}"></td>
-                            <td th:text="${cln.isEnabled}"></td>
-                            <td th:text="${cln.getPassword}"></td>
-                            <td>
-                                
-                                <div class="btn">
-                                    <a th:href="@{/deleteClientes/{id}(id=${cln.getUser_id})}">Eliminar</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="btn">
-                                    <a th:href="@{/editClientes/{id}(id=${cln.getUser_id})}">Edit</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </th:block>
-                    </tbody>
-                </table>
-            </div> 
-        </div>
+        <div class="lista">
+            <a href="clientesN">Nuevo Cliente</a>
+            <table>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido1</th>
+                        <th scope="col">Apellido2</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Fecha de Inscripcion</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Enable</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Editar</th>
+                </thead>
+                <tbody>
+                <th:block th:each="cln : ${users}">
+                    <tr>
 
-    </body>
+                        <td th:text="${cln.getUser_id}"></td>
+                        <td th:text="${cln.getUsername}"></td>
+                        <td th:text="${cln.getName}"></td>
+                        <td th:text="${cln.getSurname}"></td>
+                        <td th:text="${cln.getSecondsurname}"></td>
+                        <td th:text="${cln.getEmail}"></td>
+                        <td th:text="${cln.getTelephone}"></td>
+                        <td th:text="${cln.getInscription}"></td>
+                        <td th:text="${cln.getLista}"></td>
+                        <td th:text="${cln.isEnabled}"></td>
+                        <td th:text="${cln.getPassword}"></td>
+                        <td>
+
+                            <div class="btn">
+                                <a th:href="@{/deleteClientes/{id}(id=${cln.getUser_id})}">Eliminar</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn">
+                                <a th:href="@{/editClientes/{id}(id=${cln.getUser_id})}">Edit</a>
+                            </div>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+
+</body>
 </html>

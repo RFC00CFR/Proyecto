@@ -30,32 +30,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
+                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/productList}" method="get" >
                                     <input type="submit" value="Lista de Productos" />
                                 </form>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-                                    <input type="submit" value="Lista de Marcas" />
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-                                    <input type="submit" value="Lista de Imagenes" />
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-                                    <input type="submit" value="Lista de Categorias" />
-                                </form>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td>
                                 <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/messsageList}" method="get" >
@@ -63,6 +43,22 @@
                                 </form>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>
+                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/crearProduct}" method="get" >
+                                    <input type="submit" value="Crear producto" />
+                                </form>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/image}" method="get" >
+                                    <input type="submit" value="Subir imagen" />
+                                </form>
+                            </td>
+                        </tr>          
+
                     </table>
                 </div>
             </article>

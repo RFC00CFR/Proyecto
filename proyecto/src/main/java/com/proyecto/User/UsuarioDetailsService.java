@@ -20,7 +20,7 @@ public class UsuarioDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
+            throws UsernameNotFoundException {  
         User user = userRepository.getUserByUsername(username);
 
         if (user == null) {
@@ -60,4 +60,5 @@ public class UsuarioDetailsService implements UserDetailsService {
     public List<Role> listRoles() {
         return (List<Role>) roleRepository.findAll();
     }
+
 }

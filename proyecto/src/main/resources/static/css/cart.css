@@ -2,6 +2,7 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+
 html, body {
     height: 100%;
 }
@@ -15,7 +16,6 @@ body {
     font-weight: bold;
     text-align: center;
     flex: 1 0 auto;
-    background-image: linear-gradient(to right, rgb(0, 207, 210) , rgb(0, 147, 180));
 }
 
 .wrapper > * {
@@ -34,7 +34,7 @@ body {
 
 .main {
     text-align: left;
-    /*    background: deepskyblue;*/
+/*    background: deepskyblue;*/
     background-image: linear-gradient(to right, rgb(0, 207, 210) , rgb(0, 147, 180));
 }
 
@@ -73,67 +73,22 @@ body {
 }
 
 body {
-    padding-top: 70px;
+    padding-top: 80px;
 
 }
-/*.form{
+.form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}*/
+}
 h1{
     text-align:center;
     color:white;
 }
-/*.txt_input label{
-    padding-top: 30px;
-}*/
-
-
 .footer {
     flex-shrink: 0;
 }
-.container-matrix{
-    margin-top: 80px;
-    margin-bottom: 200px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.matriz{
-    /*    display: inline-block;
-        transform: translate(20%,15%);*/
-    color:black;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-
-}
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: contain;
-    background-color: white;
-    color:black;
-
-}
-.card{
-    margin-bottom: 80px;
-    margin-right: 40px;
-    background-color: #59798D;
-    color: white;
-    margin-left: 15%;
-}
-.card-body{
-    background-color: #151583;
-}
-
-.btn{
-    background-color: white;
-    color: black;
+.row{
+    --bs-gutter-x:0;
 }
