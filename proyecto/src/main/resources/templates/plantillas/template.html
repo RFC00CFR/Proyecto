@@ -38,7 +38,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Reviews</a>
+                                <a class="nav-link" href="/reviews">Reviews</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact Us</a>
@@ -190,5 +190,26 @@
         </footer>
         <!-- Footer -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+
+        <div th:fragment="qty(qty, id)">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link minusButton" href="" th:id="${id}"><b>-</b></a>
+                </li>
+
+                <li class="page-item">
+                    <input type="text" th:value="${qty}" class="form-control text-center" onkeydown="return false;" style="max-width:55px">
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link plusButton" href="" th:id="${id}"><b>+</b></a>
+                </li>
+            </ul>
+
+        </div>
+
     </body>
 </html>

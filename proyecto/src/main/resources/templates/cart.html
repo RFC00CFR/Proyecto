@@ -37,7 +37,7 @@
                                             <b>[[${product.nombre}]]</b>
                                         </a>
                                     </div>
-                                    <div><input type="number" th:value="${item.cantidad}"  class="form-control" ></div>
+                                    <div th:replace="plantillas/template::qty(${item.cantidad}, ${item.product.id})"></div>
                                     <div>
                                         <span>x[[${product.precio}]]</span>
                                         <span>= [[subtotal]]</span>

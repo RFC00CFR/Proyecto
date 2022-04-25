@@ -9,7 +9,7 @@
 
 
         <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--                <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
+        <!--                <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
 
         <!--        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,7 +27,7 @@
         -->
 
 
-        
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 
@@ -76,7 +76,12 @@
                                         <!--                                        <input th:id="${review.getId}" th:name="${review.getId}"  th:value="${review.getCalificacion}" class="rating-loading">-->
                                         <!--                                        <input th:id="${review.getId}" th:name="${review.getId}"  th:value="${review.getCalificacion}" type="number" class="rating" min=0 max=5 step=1 data-size="lg" data-rtl="true">-->
                                         <input th:id="${review.getId}" th:name="${review.getId}"  th:value="${review.getCalificacion}" class="rating-loading">
+
+
                                     </div>
+
+
+
                                     <script>
                                         var id1 = '#[[${review.getId}]]';
                                         $(id1).rating({displayOnly: true, step: 1});

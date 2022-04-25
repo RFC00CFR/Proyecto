@@ -34,6 +34,7 @@
                                     <p class="card-text"><section class="cat">Marca:</section> [[${prod.getMarca}]]</p>
                                     <p class="card-text"><section class="cat">Precio:</section> [[${prod.getPrecio}]]</p>
                                     <div>
+                                         <div th:replace="plantillas/template::qty(${prod.cantidad}, ${prod.id})"></div>
                                         <button class="btn btn-primary" id="btnAdd">Agregar al carrito</button>
                                     </div>
 
