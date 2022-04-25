@@ -24,6 +24,26 @@ body {
     flex: 1 0 auto;
 }
 
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 350px;
+    color: whitesmoke;
+}
+input{
+    padding: 5px;
+    border-bottom-style: none;
+    border-left-color: white;
+    border-color: white;
+}
+
+label{
+    margin: 10px;
+}
 .header {
     background: tomato;
 }
