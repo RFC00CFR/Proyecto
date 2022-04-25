@@ -26,7 +26,6 @@ public class Website {
 
     @Autowired
     private UserRepository userRepository;
-    
 
     @Autowired
     private RoleRepository roleRepository;
@@ -111,13 +110,14 @@ public class Website {
     }
 //    *** Frequently Asked Questions *** Ending
 
-//    *** Contact Us *** Begining
+//    *** Reviews*** Begining
+
+    
 
     
     
-    
-//    *** Contact Us *** Ending
-    
+
+//    *** Reviews *** Ending
 //    *** Admin Page *** Begining
     @GetMapping("/adminpage")
     public String getAdminpage(Model model) {
