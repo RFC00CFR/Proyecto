@@ -22,8 +22,10 @@
         <div class="wrapper">
 
             <article class="main">
+                <br>
                 <h1>Contact us</h1>
-                <form th:action="@{/process_message}" th:object="${message}" method="post" style="margin: auto; padding:auto;" >
+                <br>
+                <form class="contactForm" th:action="@{/process_message}" th:object="${message}" method="post" style="margin: auto; padding:auto;" >
                     <table class="tabla">
                         <tr>
                             <td align="left">Nombre completo:</td>
@@ -51,8 +53,10 @@
                         </tr>
                     </table>
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                    <button type="submit" class="btn btn-light">Submit</button>
                 </form>
+                <br><br>
 
 
 
