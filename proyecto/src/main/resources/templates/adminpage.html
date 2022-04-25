@@ -50,13 +50,7 @@
                                 </form>
                             </td>
                         </tr> 
-                        <tr>
-                            <td>
-                                <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/image}" method="get" >
-                                    <input type="submit" value="Subir imagen" />
-                                </form>
-                            </td>
-                        </tr>          
+
 
                     </table>
                 </div>
@@ -74,39 +68,3 @@
         </footer>
     </body>
 </html>
-
-
-<!--<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-    <head>
-        <title>Account</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" th:href="@{/css/templateCSS.css}" />
-
-    </head>
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <header th:replace="plantillas/template::header"></header>
-
-
-        <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-            <input type="submit" value="Lista de Usuarios" />
-        </form>
-        <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-            <input type="submit" value="Lista de Productos" />
-        </form>
-        <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-            <input type="submit" value="Lista de Marcas" />
-        </form>
-        <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-            <input type="submit" value="Lista de Imagenes" />
-        </form>
-        <form sec:authorize="hasAnyAuthority('ADMIN')" th:action="@{/users}" method="get" >
-            <input type="submit" value="Lista de Categorias" />
-        </form>
-
-    </body>
-</html>-->

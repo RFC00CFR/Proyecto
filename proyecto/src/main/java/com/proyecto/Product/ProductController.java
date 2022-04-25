@@ -51,12 +51,10 @@ public class ProductController {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         producto.setUrl("/img/" + fileName);
-
+        String direccion = "/img/";
         productosService.createProductos(producto);
 
-        String uploadDir = "/img/";
-
-        Image.saveImg(uploadDir, fileName, multipartFile);
+        Image.saveFile(direccion, fileName, multipartFile);
 
         return "redirect:/productList";
 //        
