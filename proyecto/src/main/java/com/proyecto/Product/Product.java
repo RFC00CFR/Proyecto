@@ -44,4 +44,11 @@ public class Product implements Serializable {
     @Setter
     private String categoria;
 
+    public Product() {
+    }
+
+    public Product(int id) {
+        this.id = id;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.proyecto.Product;
 
+import com.proyecto.User.UsuarioDetails;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -12,12 +13,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.apache.commons.io.FilenameUtils;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @Controller
 public class ProductController {
 
     @Autowired
     private IProductService productosService;
+
+    @Autowired
+    private ProductRepository prodRepo;
 
     @GetMapping("/productos")
     public String productos(Model model) {
@@ -47,23 +53,21 @@ public class ProductController {
     }
 
     @PostMapping("/saveProducto")
-    public String guardarProducto(@ModelAttribute Product producto, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+    public String guardarProducto(@ModelAttribute Product producto, @RequestParam("image") MultipartFile multipartFile, @AuthenticationPrincipal UsuarioDetails currentUser) throws IOException {
 
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        producto.setUrl("/img/" + fileName);
+        String s = "1";
+        String fileName = FilenameUtils.getExtension(StringUtils.cleanPath(multipartFile.getOriginalFilename()));
+        producto.setUrl("/img/" + s + "." + fileName);
         String direccion = "/img/";
         productosService.createProductos(producto);
-
-        Image.saveFile(direccion, fileName, multipartFile);
+        producto = prodRepo.getProductByNombre(producto.getNombre());
+        producto.setUrl("/img/" + Integer.toString(producto.getId()) + "." + fileName);
+        productosService.createProductos(producto);
+        s = Integer.toString(producto.getId()) + "." + fileName;
+        Image.saveFile(direccion, s, multipartFile);
 
         return "redirect:/productList";
-//        
-//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-//        producto.setUrl(fileName);
-//        productosService.createProductos(producto);
-//        Image.saveImg("/img/", fileName, multipartFile);
-//
-//        return "redirect:/productList";
+
     }
 
     @GetMapping("/editProduct/{id}")
@@ -75,7 +79,14 @@ public class ProductController {
 
     @GetMapping("/deleteProduct/{id}")
     public String eliminarProduct(@PathVariable("id") int idProducto) {
-        productosService.deleteProductos(idProducto);
+
+        try {
+            Product producto = productosService.getProductosById(idProducto);
+            String dir = producto.getUrl();
+            Image.deleteFile(dir);
+            productosService.deleteProductos(idProducto);
+        } catch (IOException e) {
+        }
         return "redirect:/productList";
     }
 
@@ -88,6 +99,15 @@ public class ProductController {
     public String saveImage(@ModelAttribute Product producto) {
         productosService.createProductos(producto);
         return "redirect:/productList";
+    }
+
+    @GetMapping("/item/{id}")
+    public String itemPage(Model model, @PathVariable("id") int idProducto) {
+
+        Product p = productosService.getProductosById(idProducto);
+        model.addAttribute("productos", p);
+
+        return "item";
     }
 
 }

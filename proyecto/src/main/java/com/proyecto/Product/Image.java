@@ -10,42 +10,30 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Image {
 
-    public static void saveFile(String uploadDir, String fileName,
-            MultipartFile multipartFile) throws IOException {
-        String dir = System.getProperty("user.dir") +"/src/main/resources/static"+uploadDir;
+    public static void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
+        String dir = System.getProperty("user.dir") + "/src/main/resources/static" + uploadDir;
 
         Path uploadPath = Paths.get(dir);
-         
+
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
-         
-        try (InputStream inputStream = multipartFile.getInputStream()) {
+
+        try ( InputStream inputStream = multipartFile.getInputStream()) {
             Path filePath = uploadPath.resolve(fileName);
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ioe) {        
+        } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
-        }      
+        }
     }
 
-}
-//            Path filePath = uploadPath.resolve(fileName);
-//            Path path = (Path) Paths.get(uploadDir, fileName);
-//            System.out.println("THIS IS PATH FILE = " + path.toString());
+    public static void deleteFile(String uploadDir) throws IOException {
+        try {
+            String dir = System.getProperty("user.dir") + "/src/main/resources/static" + uploadDir;
+            Files.delete(Paths.get(dir));
+        } catch (IOException x) {
+            throw new IOException("Could not delete image file: " + uploadDir, x);
+        }
 
-//    public static void saveImg(String direccion, String nombre, MultipartFile archivoMulti) throws IOException {
-//        Path uploadPath = Paths.get(direccion);
-//
-//        if (!Files.exists(uploadPath)) {
-//            Files.createDirectories(uploadPath);
-//        }
-//
-//        try ( InputStream inputStream = archivoMulti.getInputStream()) {
-//            Path filePath = uploadPath.resolve(nombre);
-//
-//
-//            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-//        } catch (IOException ioe) {
-//            throw new IOException("Could not save image file: " + nombre, ioe);
-//        }
-//    }
+    }
+}

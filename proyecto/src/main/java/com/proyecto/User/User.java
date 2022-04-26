@@ -64,6 +64,7 @@ public class User implements Serializable {
     )
     private Set<Role> roles = new HashSet<>();
 
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -86,9 +87,20 @@ public class User implements Serializable {
         return s;
     }
 
+    public User() {
+    }
+
+    public User(int user_id) {
+        this.user_id = user_id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "user_id=" + user_id + ", username=" + username + ", enabled=" + enabled + ", name=" + name + ", surname=" + surname + ", secondsurname=" + secondsurname + ", email=" + email + ", telephone=" + telephone + ", inscription=" + inscription + '}';
+    }
+
+    
+
+
+    
 }
-//@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-//    cascade = {CascadeType.PERSIST,
-//        CascadeType.DETACH,
-//        CascadeType.REFRESH,
-//        CascadeType.REMOVE}, 

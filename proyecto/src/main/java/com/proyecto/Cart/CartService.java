@@ -22,20 +22,46 @@ public class CartService {
 
     public Integer addProduct(Integer id, Integer cantidad, User user) {
         Integer qtyAdded = cantidad;
-        Product product = productRepo.findById(id).get();
+        Product product = productRepo.getProductById(id);
 
         CartItem cartItem = cartRepo.findByUserAndProduct(user, product);
-        
-        if(product != null){
-            qtyAdded = cartItem.getCantidad() + cantidad;
-            cartItem.setCantidad(qtyAdded);
-        }else{
-        cartItem = new CartItem();
-        cartItem.setCantidad(cantidad);
-        cartItem.setUser(user);
-        cartItem.setProduct(product);
+        if (cartItem == null) {
+            cartItem = new CartItem(product, user, cantidad);
         }
+        if (product != null) {
+            qtyAdded = cartItem.getCantidad() + cantidad;
+
+        } else {
+            cartItem = new CartItem();
+            cartItem.setUser(user);
+            cartItem.setProduct(product);
+        }
+
+        cartItem.setCantidad(qtyAdded);
         cartRepo.save(cartItem);
         return qtyAdded;
     }
+
+    public Integer updateProduct(Integer id, Integer cantidad, User user) {
+        Integer qtyAdded = cantidad;
+        Product product = productRepo.getProductById(id);
+
+        CartItem cartItem = cartRepo.findByUserAndProduct(user, product);
+        if (cartItem == null) {
+            cartItem = new CartItem(product, user, cantidad);
+        }
+        if (product != null) {
+            qtyAdded = cartItem.getCantidad() + cantidad;
+
+        } else {
+            cartItem = new CartItem();
+            cartItem.setUser(user);
+            cartItem.setProduct(product);
+        }
+
+        cartItem.setCantidad(qtyAdded);
+        cartRepo.save(cartItem);
+        return qtyAdded;
+    }
+
 }

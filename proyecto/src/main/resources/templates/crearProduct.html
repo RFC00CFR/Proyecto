@@ -37,35 +37,35 @@
                         <h2>Registrar Productos</h2>
                         <br>
                         <label for="nombre">Nombre</label>
-                        <input type="text" th:field="*{nombre}" placeholder= "Nombre" id="nombre">
+                        <input type="text" th:field="*{nombre}" placeholder= "Nombre" id="nombre" required="required">
                     </div>
                     <div class="form-group-row">
                         <label for="marcas">Marca</label>
-                        <input type="text" th:field="*{marca}" placeholder= "marca" id="marca">
+                        <input type="text" th:field="*{marca}" placeholder= "marca" id="marca" required="required">
                     </div>
                     <div>
                         <label for="nombre">Precio</label>
-                        <input type="number" th:field="*{precio}" placeholder= "Precio" id="precios">
+                        <input type="number" th:field="*{precio}" placeholder= "Precio" id="precios" required="required">
                     </div>
                     <div>
                         <label for="nombre">Cantidad</label>
-                        <input type="number" th:field="*{cantidad}" placeholder= "Cantidad" id="cantidades">
+                        <input type="number" th:field="*{cantidad}" placeholder= "Cantidad" id="cantidades" required="required">
                     </div>
                     <div>
                         <label for="nombre">Descripcion</label>
 
-                        <input type="text" th:field="*{descripcion}" placeholder= "Descripcion" id="descripciones">
+                        <input type="text" th:field="*{descripcion}" placeholder= "Descripcion" id="descripciones" required="required">
                     </div>
                     <div class="form-group-row">
                         <label for="url">Imagen</label>
                         <img th:src="@{${url}}">
 <!--                        <input type="text" th:field="*{url}" placeholder= "Imagen" id="imagen">-->
-                        <input type="file" id="image" name="image" accept="image/png, image/jpeg" />
+                        <input type="file" id="image" name="image" accept="image/png, image/jpeg" required="required" />
 
                     </div>
                     <div class="form-group-row">
                         <label for="categorias">Categoria</label>
-                        <input type="text" th:field="*{categoria}" placeholder= "Categoria" id="categoria">
+                        <input type="text" th:field="*{categoria}" placeholder= "Categoria" id="categoria" required="required">
                     </div>
                     <br>
 

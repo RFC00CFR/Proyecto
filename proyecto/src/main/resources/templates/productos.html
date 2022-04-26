@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
@@ -30,14 +31,21 @@
                                 <img th:src="@{${prod.getUrl}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">[[${prod.getNombre}]]</h5>
-                                    <p class="card-text"><section class="cat">Descripcion:</section> [[${prod.getDescripcion}]]</p>
-                                    <p class="card-text"><section class="cat">Marca:</section> [[${prod.getMarca}]]</p>
-                                    <p class="card-text"><section class="cat">Precio:</section> [[${prod.getPrecio}]]</p>
-                                    <div>
-                                         <div th:replace="plantillas/template::qty(${prod.cantidad}, ${prod.id})"></div>
-                                        <button class="btn btn-primary" id="btnAdd">Agregar al carrito</button>
+                                    <div class="contenido">
+                                        <p class="card-text"><section class="cat">Descripcion: </section> [[${prod.getDescripcion}]]</p>
                                     </div>
+                                    <div class="contenido">
+                                        <p class="card-text"><section class="cat">Marca: </section> [[${prod.getMarca}]]</p>
+                                    </div>
+                                    <div class="contenido">
+                                        <p class="card-text"><section class="cat">Precio: </section> [[${prod.getPrecio}]]</p>
+                                    </div>
+                                    <div>
 
+                                        <a th:href="@{/item/{id}(id=${prod.getId})}">
+                                            <button type="button"> Mas informacion</button> 
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

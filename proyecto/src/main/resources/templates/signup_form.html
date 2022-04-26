@@ -28,48 +28,41 @@
 
                     <div class="form-group">
                         <label for="Username">Username</label>
-                        <input type="text" th:field="*{username}" class="form-control" id="Username" aria-describedby="Username" placeholder="Enter Username">
+                        <input type="text" th:field="*{username}" class="form-control" id="Username" aria-describedby="Username" placeholder="Enter Username" required="required">
 
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
-                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password" onsubmit="required()">
+                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password" required="required">
                     </div>
 
                     <div class="form-group">
                         <label for="Name">Name</label>
-                        <input type="text" th:field="*{name}" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="text" th:field="*{name}" class="form-control" id="exampleInputPassword1" placeholder="Name" required="required">
                     </div>
 
                     <div class="form-group">
                         <label for="Surname">Surname</label>
-                        <input type="text" th:field="*{surname}" class="form-control" id="surname" placeholder="Enter surname">
+                        <input type="text" th:field="*{surname}" class="form-control" id="surname" placeholder="Enter surname" required="required">
                     </div>
 
                     <div class="form-group">
                         <label for="Second Surname">Second Surname</label>
-                        <input type="text" th:field="*{secondsurname}" class="form-control" id="secondsurname" aria-describedby="secondsurname" placeholder="Enter secondsurname">
+                        <input type="text" th:field="*{secondsurname}" class="form-control" id="secondsurname" aria-describedby="secondsurname" placeholder="Enter secondsurname" required="required">
 
                     </div>
                     <div class="form-group">
                         <label for="Email">Email</label>
-                        <input type="email" th:field="*{email}" class="form-control" id="email" aria-describedby="email" placeholder="Enter email">
+                        <input type="email" th:field="*{email}" class="form-control" id="email" aria-describedby="email" placeholder="Enter email" required="required">
 
                     </div>
                     <div class="form-group">
                         <label for="Telephone">Telephone</label>
-                        <input type="text" th:field="*{telephone}" class="form-control" id="telephone" aria-describedby="telephone" placeholder="Enter telephone">
+                        <input type="text" th:field="*{telephone}" class="form-control" id="telephone" aria-describedby="telephone" placeholder="Enter telephone" required="required">
 
                     </div>
-                    <!--                    <div class="form-group">
-                                            <label for="Inscription">Inscription</label>
-                                            <input type="date" th:field="*{inscription}" class="form-control" id="inscription" aria-describedby="inscription" placeholder="Enter inscription">
-                                        </div>-->
-
-
-
                     <br>
-                    
+
                     <button type="submit" class="btn btn-light">Submit</button>
                 </form>
 
